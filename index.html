@@ -93,6 +93,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .modal-row-desc{font-size:10px;color:#B89A82}
 .modal-close{width:100%;margin-top:16px;background:#F5EAE0;border:none;border-radius:12px;padding:11px;font-size:13px;font-weight:600;color:#7A5C42;cursor:pointer;font-family:inherit}
 /* TIME PICKER MODAL */
+/* iOS-style wheel */
+.tp-wheel-wrap{display:flex;gap:12px;justify-content:center;margin-bottom:16px;position:relative}
+.tp-col{display:flex;flex-direction:column;align-items:center;gap:4px}
+.tp-col-label{font-size:10px;color:#B89A82;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.tp-drum{width:72px;height:150px;overflow:hidden;position:relative;border-radius:14px;background:#fff;border:1.5px solid #E8D5C4}
+.tp-drum::before,.tp-drum::after{content:'';position:absolute;left:0;right:0;height:54px;z-index:2;pointer-events:none}
+.tp-drum::before{top:0;background:linear-gradient(to bottom,rgba(255,248,242,.95),rgba(255,248,242,0))}
+.tp-drum::after{bottom:0;background:linear-gradient(to top,rgba(255,248,242,.95),rgba(255,248,242,0))}
+.tp-drum-sel{position:absolute;top:54px;left:0;right:0;height:42px;background:#FFF5EE;border-top:1.5px solid #C47B4A;border-bottom:1.5px solid #C47B4A;z-index:1;pointer-events:none;border-radius:0}
+.tp-drum-scroll{position:absolute;inset:0;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tp-drum-scroll::-webkit-scrollbar{display:none}
+.tp-drum-item{height:42px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;color:#B89A82;scroll-snap-align:start;transition:color .1s,font-weight .1s}
+.tp-drum-item.sel{color:#C47B4A;font-weight:700}
+.tp-drum-pad{height:54px;flex-shrink:0}
 .tp-display{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
 .tp-num{font-size:36px;font-weight:700;color:#7A5C42;background:#FFF5EE;border:1px solid #F0C8A0;border-radius:12px;padding:8px 16px;min-width:70px;text-align:center}
 .tp-sep{font-size:32px;font-weight:700;color:#C47B4A}
@@ -363,7 +377,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="site-card on" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🍲</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Mako Kitchen</div><div class="sc-cat">Everyday cooking</div></div>
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🥗</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Allrecipes</div><div class="sc-cat">International</div></div>
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🍰</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Jamie Oliver</div><div class="sc-cat">British &amp; world</div></div>
-        <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🥛</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Tnuva Recipes</div><div class="sc-cat">Dairy &amp; more</div></div>
+        <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji"></span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Tnuva Recipes</div><div class="sc-cat">Dairy &amp; more</div></div>
         <div class="site-card add"><i class="ti ti-plus" style="font-size:16px;color:#C47B4A"></i><span>Add custom URL</span></div>
       </div>
       <div style="font-size:11px;color:#9A6840;text-align:center;margin-bottom:12px" id="siteCount">2 sites selected</div>
@@ -382,7 +396,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
           <div class="csc" style="white-space:normal;line-height:1.4;margin-top:2px">Full week of meal suggestions on a set day, with reminders.</div>
           <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px"><span style="font-size:10px;background:#F5EAE0;color:#9A6840;padding:2px 7px;border-radius:20px;border:.5px solid #E8D5C4">Reminders</span><span style="font-size:10px;background:#F5EAE0;color:#9A6840;padding:2px 7px;border-radius:20px;border:.5px solid #E8D5C4">Weekly schedule</span></div>
         </div>
-        <div id="radioWeekly" style="width:17px;height:17px;border-radius:50%;background:#C47B4A;border:1.5px solid #C47B4A;display:flex;align-items:center;justify-content:center;flex-shrink:0"><div style="width:7px;height:7px;border-radius:50%;background:#fff"></div></div>
+        <div id="radioWeekly" style="width:28px;height:28px;border-radius:50%;background:#C47B4A;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(196,123,74,.4)"><i class="ti ti-check" style="color:#fff;font-size:16px"></i></div>
       </div>
       <div id="modeDish" class="ccard" style="margin-bottom:14px;cursor:pointer;padding:14px" onclick="selectMode('dish')">
         <div class="ci t" style="width:44px;height:44px;border-radius:12px"><i class="ti ti-wand" style="font-size:20px"></i></div>
@@ -391,7 +405,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
           <div class="csc" style="white-space:normal;line-height:1.4;margin-top:2px">Ask for a dish type anytime and get a random pick from your library.</div>
           <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px"><span style="font-size:10px;background:#E1F5EE;color:#085041;padding:2px 7px;border-radius:20px;border:.5px solid #9FE1CB">On demand</span><span style="font-size:10px;background:#E1F5EE;color:#085041;padding:2px 7px;border-radius:20px;border:.5px solid #9FE1CB">No schedule</span></div>
         </div>
-        <div id="radioDish" style="width:17px;height:17px;border-radius:50%;border:1.5px solid #D8C0A8;background:#fff;flex-shrink:0"></div>
+        <div id="radioDish" style="width:28px;height:28px;border-radius:50%;border:2px solid #D8C0A8;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0"></div>
       </div>
       <div class="divider"></div>
       <div class="sec-label"><i class="ti ti-refresh" style="vertical-align:-2px;margin-right:4px"></i>Library sync — once a week</div>
@@ -562,12 +576,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button style="background:#C47B4A;color:#fff;border:none;border-radius:10px;padding:7px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px" onclick="nav('add')"><i class="ti ti-plus" style="font-size:13px"></i> Add</button>
       </div>
       <div class="lib-search"><i class="ti ti-search"></i><input type="text" placeholder="Search recipes…" oninput="filterLib(this.value)"></div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px" id="libDietFilters">
-        <button class="fchip" style="font-size:10px;padding:4px 9px" onclick="toggleDietFilter(this,'Dairy')">🥛 Dairy</button>
-        <button class="fchip" style="font-size:10px;padding:4px 9px" onclick="toggleDietFilter(this,'Meat')">🥩 Meat</button>
-        <button class="fchip" style="font-size:10px;padding:4px 9px" onclick="toggleDietFilter(this,'Fish')">🐟 Fish</button>
-        <button class="fchip" style="font-size:10px;padding:4px 9px" onclick="toggleDietFilter(this,'Vegan')">🌿 Vegan</button>
-        <button class="fchip" style="font-size:10px;padding:4px 9px" onclick="toggleDietFilter(this,'Vegetarian')">🥦 Veg</button>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;align-items:center" id="libDietFilters">
+        <span style="font-size:10px;color:#B89A82;font-weight:500;white-space:nowrap">Dietary:</span>
+        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Dairy')">Dairy</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Meat')">Meat</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Fish')">Fish</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Vegan')">Vegan</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Vegetarian')">Veg</button>
       </div>
       <div class="cat-scroll" id="libcats"></div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
@@ -632,9 +647,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         </div>
         <div class="add-field-label">Dietary</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
-          <span style="background:#EBF4FF;border:1px solid #5B9EE1;color:#1A4E8A;font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500;cursor:pointer">🥛 Dairy ✓</span>
-          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">🌿 Vegetarian</span>
-          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">🥦 Vegan</span>
+          <span style="background:#EBF4FF;border:1px solid #5B9EE1;color:#1A4E8A;font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500;cursor:pointer">Dairy ✓</span>
+          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Vegetarian</span>
+          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Vegan</span>
         </div>
         <div class="add-field-label">Instructions / ingredients</div>
         <div style="font-size:12px;color:#C8A98A;min-height:60px;border:1px solid #F0E6DC;border-radius:8px;padding:8px">Type or paste recipe here…</div>
@@ -817,24 +832,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="modal-handle"></div>
       <div class="modal-title" id="tpTitle">Set time</div>
       <div style="margin-bottom:14px"></div>
-      <div style="display:flex;gap:8px;justify-content:center;align-items:stretch;margin-bottom:16px">
-        <!-- Hour wheel -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <div style="font-size:10px;color:#B89A82;font-weight:500;text-transform:uppercase;letter-spacing:.4px">Hour</div>
-          <div class="tp-wheel" id="wheelHour" style="position:relative;height:140px;width:70px;overflow:hidden;border-radius:12px;background:#fff;border:1.5px solid #E8D5C4"></div>
+      <div class="tp-wheel-wrap">
+        <div class="tp-col">
+          <div class="tp-col-label">Hour</div>
+          <div class="tp-drum" id="drumHour"><div class="tp-drum-sel"></div><div class="tp-drum-scroll" id="scrollHour"></div></div>
         </div>
-        <!-- Min wheel -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <div style="font-size:10px;color:#B89A82;font-weight:500;text-transform:uppercase;letter-spacing:.4px">Min</div>
-          <div class="tp-wheel" id="wheelMin" style="position:relative;height:140px;width:70px;overflow:hidden;border-radius:12px;background:#fff;border:1.5px solid #E8D5C4"></div>
+        <div class="tp-col">
+          <div class="tp-col-label">Min</div>
+          <div class="tp-drum" id="drumMin"><div class="tp-drum-sel"></div><div class="tp-drum-scroll" id="scrollMin"></div></div>
         </div>
-        <!-- AM/PM wheel -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <div style="font-size:10px;color:#B89A82;font-weight:500;text-transform:uppercase;letter-spacing:.4px">AM/PM</div>
-          <div class="tp-wheel" id="wheelAmPm" style="position:relative;height:140px;width:70px;overflow:hidden;border-radius:12px;background:#fff;border:1.5px solid #E8D5C4"></div>
+        <div class="tp-col">
+          <div class="tp-col-label">AM/PM</div>
+          <div class="tp-drum" id="drumAmPm"><div class="tp-drum-sel"></div><div class="tp-drum-scroll" id="scrollAmPm"></div></div>
         </div>
       </div>
-      <!-- Hidden state for confirm -->
       <div id="tpHour" style="display:none">5</div>
       <div id="tpMin" style="display:none">00</div>
       <div id="tpAmPm" style="display:none">PM</div>
@@ -915,6 +926,7 @@ function nav(id){
   // FIX 5: show nav for ALL non-onboarding screens
   document.getElementById('bnav').style.display=ONBOARDING.includes(id)?'none':'flex';
   if(id==='menu'){buildTabs();buildContent();}
+  if(id==='ob5'){buildOb5Reminders();}
   if(id==='home'){buildHomeDayContent();}
   if(id==='library'){buildLib();}
   if(id==='favourites'){buildFavourites();}
@@ -931,7 +943,26 @@ const HDAYS=[{d:'Sun',n:18},{d:'Mon',n:19},{d:'Tue',n:20},{d:'Wed',n:21},{d:'Thu
 // ONBOARDING
 function toggleAgree(){const c=document.getElementById('agreeCheck'),b=document.getElementById('agreeBtn');c.classList.toggle('on');const on=c.classList.contains('on');b.style.opacity=on?'1':'.35';b.style.pointerEvents=on?'auto':'none';}
 function toggleSite(card){if(card.classList.contains('add'))return;card.classList.toggle('on');const n=document.querySelectorAll('#sitesGrid .site-card.on').length;document.getElementById('siteCount').textContent=n+' site'+(n!==1?'s':'')+' selected';}
-function selectMode(m){appMode=m;const wEl=document.getElementById('modeWeekly'),dEl=document.getElementById('modeDish'),rW=document.getElementById('radioWeekly'),rD=document.getElementById('radioDish');if(m==='weekly'){wEl.style.borderColor='#C47B4A';wEl.style.background='#FFF5EE';dEl.style.borderColor='#E8D5C4';dEl.style.background='#fff';rW.innerHTML='<div style="width:7px;height:7px;border-radius:50%;background:#fff"></div>';rW.style.background='#C47B4A';rW.style.borderColor='#C47B4A';rD.innerHTML='';rD.style.background='#fff';rD.style.borderColor='#D8C0A8';}else{dEl.style.borderColor='#1D9E75';dEl.style.background='#F0FBF7';wEl.style.borderColor='#E8D5C4';wEl.style.background='#fff';rD.innerHTML='<div style="width:7px;height:7px;border-radius:50%;background:#fff"></div>';rD.style.background='#1D9E75';rD.style.borderColor='#1D9E75';rW.innerHTML='';rW.style.background='#fff';rW.style.borderColor='#D8C0A8';}}
+function selectMode(m){
+  appMode=m;
+  const wEl=document.getElementById('modeWeekly'),dEl=document.getElementById('modeDish');
+  const rW=document.getElementById('radioWeekly'),rD=document.getElementById('radioDish');
+  if(m==='weekly'){
+    wEl.style.borderColor='#C47B4A';wEl.style.background='#FFF5EE';
+    dEl.style.borderColor='#E8D5C4';dEl.style.background='#fff';
+    rW.style.cssText='width:28px;height:28px;border-radius:50%;background:#C47B4A;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(196,123,74,.4)';
+    rW.innerHTML='<i class="ti ti-check" style="color:#fff;font-size:16px"></i>';
+    rD.style.cssText='width:28px;height:28px;border-radius:50%;border:2px solid #D8C0A8;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0';
+    rD.innerHTML='';
+  }else{
+    dEl.style.borderColor='#1D9E75';dEl.style.background='#F0FBF7';
+    wEl.style.borderColor='#E8D5C4';wEl.style.background='#fff';
+    rD.style.cssText='width:28px;height:28px;border-radius:50%;background:#1D9E75;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(29,158,117,.4)';
+    rD.innerHTML='<i class="ti ti-check" style="color:#fff;font-size:16px"></i>';
+    rW.style.cssText='width:28px;height:28px;border-radius:50%;border:2px solid #D8C0A8;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0';
+    rW.innerHTML='';
+  }
+}
 function selectSyncDay(btn){document.querySelectorAll('#syncDays .day-sel').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
 function selectMenuDay(btn){document.querySelectorAll('#menuDaySel .day-sel').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
 
@@ -1135,6 +1166,7 @@ function obAddCourse(){const inp=document.getElementById('obNewCourse');const na
 // ── MEAL STRUCTURE from SETTINGS ──
 let editingMeal=null;
 function openMealStructureMenu(){
+  nav('meal-structure');
   const container=document.getElementById('mealStructureMenu');
   if(!container){showToast('Error loading meal structure');return;}
   container.innerHTML='';
@@ -1166,7 +1198,6 @@ function openMealStructureMenu(){
   addCard.innerHTML='<div class="ci" style="width:34px;height:34px;font-size:15px;background:#E1F5EE;color:#0F6E56"><i class="ti ti-plus"></i></div><div class="cb"><div class="cn" style="color:#0F6E56">Add a meal…</div></div>';
   addCard.onclick=()=>showToast('Add meal: coming soon');
   container.appendChild(addCard);
-  nav('meal-structure');
 }
 function openMealEditor(mKey){
   editingMeal=mKey;
@@ -1204,107 +1235,109 @@ function showToast(msg){const t=document.getElementById('toast');document.getEle
 
 // FINISH ONBOARDING
 function finishOnboarding(){
-  // Collect which meals were selected in wizard
   const checked=[...document.querySelectorAll('.meal-check-item.on')].map(e=>e.dataset.meal);
   if(checked.length) selectedMeals=checked;
-  // If wizard was skipped, keep selectedMeals as is
   nav('home');
 }
+function buildOb5Reminders(){
+  // Show reminder rows only for meals selected in ob4
+  const meals=selectedMeals.length?selectedMeals:['dinner','lunch'];
+  const container=document.querySelector('#scr-ob5 .srows');
+  if(!container)return;
+  container.innerHTML='';
+  const mealInfo={
+    dinner:{icon:'ti-tools-kitchen-2',label:'Dinner',def:'5:00 PM',hintId:'ob5DinnerHint',daysId:'ob5DinnerDays'},
+    lunch: {icon:'ti-bowl',          label:'Lunch', def:'11:30 AM',hintId:'ob5LunchHint',daysId:'ob5LunchDays'},
+    breakfast:{icon:'ti-coffee',     label:'Breakfast',def:'7:30 AM',hintId:'ob5BreakfastHint',daysId:'ob5BreakfastDays'},
+    brunch:{icon:'ti-egg',           label:'Brunch', def:'10:00 AM',hintId:'ob5BrunchHint',daysId:'ob5BrunchDays'},
+  };
+  meals.forEach(m=>{
+    const info=mealInfo[m];
+    if(!info)return;
+    const row=document.createElement('div');
+    row.className='srow';
+    row.style.cssText='flex-direction:column;align-items:flex-start;gap:6px';
+    row.innerHTML=`
+      <div class="remind-row-header">
+        <i class="ti ti-${info.icon}" style="font-size:15px;color:#C47B4A"></i>
+        <span class="remind-label">${info.label}</span>
+        <button class="sval" onclick="openTimePicker('ob5${m}Time','${info.label} reminder')" id="ob5${m}Time">${info.def}</button>
+        <span class="remind-off-hint" id="${info.hintId}">Off — tap a day</span>
+      </div>
+      <div class="day-sel-row" id="${info.daysId}">
+        ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>`<button class="day-sel" onclick="toggleReminderDay(this,'${info.hintId}')">${d}</button>`).join('')}
+      </div>`;
+    container.appendChild(row);
+  });
+}
 
-// WHEEL TIME PICKER
+// WHEEL TIME PICKER — iOS drum-roll style
 const HOURS=[1,2,3,4,5,6,7,8,9,10,11,12];
 const MINS=['00','15','30','45'];
 const AMPMS=['AM','PM'];
+let tpH=5,tpM=0,tpAP='PM',tpTargetBtn=null;
 
-
-function buildWheel(elId, items, selectedIdx){
-  const el=document.getElementById(elId);
-  if(!el)return;
-  const itemH=36;
-  el.innerHTML='';
-  // highlight bar
-  const hl=document.createElement('div');
-  hl.style.cssText=`position:absolute;top:52px;left:0;right:0;height:${itemH}px;background:#FFF5EE;border-top:1.5px solid #C47B4A;border-bottom:1.5px solid #C47B4A;pointer-events:none;z-index:1`;
-  el.appendChild(hl);
-  // scroller
-  const scroller=document.createElement('div');
-  scroller.style.cssText='position:absolute;top:0;left:0;right:0;overflow-y:scroll;height:100%;scroll-snap-type:y mandatory;scrollbar-width:none';
-  scroller.style.webkitOverflowScrolling='touch';
-  // top padding items
-  for(let i=0;i<2;i++){
-    const pad=document.createElement('div');
-    pad.style.cssText=`height:${itemH}px;flex-shrink:0`;
-    scroller.appendChild(pad);
-  }
+function buildDrum(scrollId, items, selectedIdx){
+  const sc=document.getElementById(scrollId);
+  if(!sc)return;
+  sc.innerHTML='';
+  // top padding
+  const padT=document.createElement('div');padT.className='tp-drum-pad';sc.appendChild(padT);
   items.forEach((item,idx)=>{
-    const row=document.createElement('div');
-    row.style.cssText=`height:${itemH}px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:${idx===selectedIdx?'700':'400'};color:${idx===selectedIdx?'#C47B4A':'#B89A82'};scroll-snap-align:start;cursor:pointer;transition:color .15s`;
-    row.textContent=String(item).padStart(2,'0');
-    row.dataset.idx=idx;
-    scroller.appendChild(row);
+    const el=document.createElement('div');
+    el.className='tp-drum-item'+(idx===selectedIdx?' sel':'');
+    el.textContent=String(item).padStart(2,'0');
+    el.dataset.idx=idx;
+    sc.appendChild(el);
   });
   // bottom padding
-  for(let i=0;i<2;i++){
-    const pad=document.createElement('div');
-    pad.style.cssText=`height:${itemH}px`;
-    scroller.appendChild(pad);
-  }
-  // scroll to selected
-  setTimeout(()=>{scroller.scrollTop=selectedIdx*itemH;},30);
-  // on scroll, update selection
-  let scrollTimer;
-  scroller.addEventListener('scroll',()=>{
-    clearTimeout(scrollTimer);
-    scrollTimer=setTimeout(()=>{
-      const idx=Math.round(scroller.scrollTop/itemH);
-      scroller.querySelectorAll('div[data-idx]').forEach(r=>{
-        const i=parseInt(r.dataset.idx);
-        r.style.fontWeight=i===idx?'700':'400';
-        r.style.color=i===idx?'#C47B4A':'#B89A82';
+  const padB=document.createElement('div');padB.className='tp-drum-pad';sc.appendChild(padB);
+  // scroll to selection
+  requestAnimationFrame(()=>{
+    sc.scrollTop=selectedIdx*42;
+  });
+  // on scroll snap
+  let st;
+  sc.addEventListener('scroll',()=>{
+    clearTimeout(st);
+    st=setTimeout(()=>{
+      const idx=Math.round(sc.scrollTop/42);
+      const clamped=Math.max(0,Math.min(items.length-1,idx));
+      sc.scrollTop=clamped*42;
+      sc.querySelectorAll('.tp-drum-item').forEach((el,i)=>{
+        el.classList.toggle('sel',i===clamped);
       });
-      if(elId==='wheelHour')tpH=HOURS[idx]||1;
-      else if(elId==='wheelMin')tpM=parseInt(MINS[idx]||0);
-      else if(elId==='wheelAmPm')tpAP=AMPMS[idx]||'PM';
+      if(scrollId==='scrollHour')tpH=HOURS[clamped];
+      else if(scrollId==='scrollMin')tpM=parseInt(MINS[clamped]);
+      else if(scrollId==='scrollAmPm')tpAP=AMPMS[clamped];
       document.getElementById('tpHour').textContent=tpH;
       document.getElementById('tpMin').textContent=String(tpM).padStart(2,'0');
       document.getElementById('tpAmPm').textContent=tpAP;
-    },150);
-  });
-  el.appendChild(scroller);
+    },120);
+  },{passive:true});
 }
 
 function openTimePicker(targetId,title){
   tpTargetBtn=document.getElementById(targetId);
   if(!tpTargetBtn){
     document.querySelectorAll('.sval').forEach(b=>{
-      if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes(targetId))tpTargetBtn=b;
+      if((b.getAttribute('onclick')||'').includes(targetId))tpTargetBtn=b;
     });
   }
   document.getElementById('tpTitle').textContent=title||'Set time';
-  // parse existing
   if(tpTargetBtn){
     const t=tpTargetBtn.textContent.match(/(\d+):(\d+)\s*(AM|PM)/);
     if(t){tpH=parseInt(t[1]);tpM=parseInt(t[2]);tpAP=t[3];}
   }
-  const hIdx=HOURS.indexOf(tpH);
-  const mIdx=MINS.indexOf(String(tpM).padStart(2,'0'));
-  const aIdx=AMPMS.indexOf(tpAP);
-  buildWheel('wheelHour',HOURS,hIdx>=0?hIdx:4);
-  buildWheel('wheelMin',MINS,mIdx>=0?mIdx:0);
-  buildWheel('wheelAmPm',AMPMS,aIdx>=0?aIdx:1);
+  buildDrum('scrollHour',HOURS,Math.max(0,HOURS.indexOf(tpH)));
+  buildDrum('scrollMin',MINS,Math.max(0,MINS.indexOf(String(tpM).padStart(2,'0'))));
+  buildDrum('scrollAmPm',AMPMS,Math.max(0,AMPMS.indexOf(tpAP)));
   document.getElementById('timePickerModal').classList.add('on');
 }
 function closeTimePicker(){document.getElementById('timePickerModal').classList.remove('on');}
-function toggleAmPm(){tpAP=tpAP==='AM'?'PM':'AM';buildWheel('wheelAmPm',AMPMS,AMPMS.indexOf(tpAP));}
-function adj(part,delta){
-  if(part==='h'){const i=(HOURS.indexOf(tpH)+delta+12)%12;tpH=HOURS[i];buildWheel('wheelHour',HOURS,i);}
-  else{const i=(MINS.indexOf(String(tpM).padStart(2,'0'))+delta+4)%4;tpM=parseInt(MINS[i]);buildWheel('wheelMin',MINS,i);}
-}
-function updateTPDisplay(){
-  document.getElementById('tpHour').textContent=tpH;
-  document.getElementById('tpMin').textContent=String(tpM).padStart(2,'0');
-  document.getElementById('tpAmPm').textContent=tpAP;
-}
+function toggleAmPm(){tpAP=tpAP==='AM'?'PM':'AM';buildDrum('scrollAmPm',AMPMS,AMPMS.indexOf(tpAP));}
+function adj(){}
+function updateTPDisplay(){}
 function confirmTime(){
   const t=tpH+':'+String(tpM).padStart(2,'0')+' '+tpAP;
   if(tpTargetBtn)tpTargetBtn.textContent=t;
