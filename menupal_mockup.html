@@ -3,7 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MenuPal — App Mockup v2</title>
+<title>Plateful</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#C47B4A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Plateful">
+<meta name="description" content="Plateful — your personal weekly menu planner">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.30.0/iconfont/tabler-icons.min.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -307,7 +314,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </style>
 </head>
 <body>
-<div class="desktop-label">MenuPal — Interactive Mockup v2</div>
+<div class="desktop-label">Plateful — Interactive Mockup v2</div>
 <div class="desktop-hint">All 8 fixes applied · Open in any browser · No install needed</div>
 
 <div class="phone" id="phone">
@@ -323,22 +330,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="screen active" id="scr-ob1">
       <div class="ob-logo">
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" fill="#FFF0E2" stroke="#E8C9A8" stroke-width="1.5"/><ellipse cx="28" cy="34" rx="13" ry="8" fill="#F5C9A8"/><rect x="21" y="25" width="14" height="10" rx="5" fill="#E8A878"/><path d="M22 25 Q22 16 28 15 Q34 16 34 25" stroke="#C47B4A" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="19" r="2" fill="#C47B4A"/><circle cx="32" cy="18" r="2" fill="#C47B4A"/><path d="M16 34 Q28 41 40 34" stroke="#C47B4A" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
-        <div class="ob-logo-title">Welcome to MenuPal</div>
+        <div class="ob-logo-title">Welcome to Plateful</div>
         <div class="ob-logo-sub">Your personal recipe collection</div>
       </div>
       <div class="cr-box">
         <div class="cr-top"><i class="ti ti-shield-check"></i><div class="cr-title">About content &amp; copyright</div></div>
-        <div class="cr-body">MenuPal is a <strong>personal aggregator</strong> — it helps you collect and organize links to recipes published publicly on the web.</div>
+        <div class="cr-body">Plateful is a <strong>personal aggregator</strong> — it helps you collect and organize links to recipes published publicly on the web.</div>
         <ul class="cr-points">
           <li>Recipes stay on their original websites</li>
-          <li>MenuPal stores links, not full content</li>
+          <li>Plateful stores links, not full content</li>
           <li>No recipe text is copied or redistributed</li>
           <li>Your own notes &amp; photos are yours alone</li>
         </ul>
       </div>
       <div class="agree-row" onclick="toggleAgree()">
         <div class="agree-check" id="agreeCheck"><i class="ti ti-check"></i></div>
-        <div class="agree-text">I understand that MenuPal collects links to publicly available recipes and does not reproduce copyrighted content.</div>
+        <div class="agree-text">I understand that Plateful collects links to publicly available recipes and does not reproduce copyrighted content.</div>
       </div>
       <button class="secondary-btn" id="agreeBtn" style="opacity:.35;pointer-events:none" onclick="nav('ob2')"><i class="ti ti-arrow-right"></i><span>Get started</span></button>
     </div>
@@ -366,7 +373,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- OB3: MODE SELECT -->
     <div class="screen" id="scr-ob3">
       <div class="step-row"><div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div></div>
-      <div class="pt" style="margin-bottom:3px">How would you like to use MenuPal?</div>
+      <div class="pt" style="margin-bottom:3px">How would you like to use Plateful?</div>
       <div class="s-sub">Pick your style — you can switch anytime in Settings.</div>
       <div id="modeWeekly" class="ccard" style="margin-bottom:10px;border-color:#C47B4A;background:#FFF5EE;cursor:pointer;padding:14px" onclick="selectMode('weekly')">
         <div class="ci" style="background:#FFF0E2;width:44px;height:44px;border-radius:12px"><i class="ti ti-calendar-week" style="font-size:20px"></i></div>
@@ -406,7 +413,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="screen" id="scr-ob4">
       <div class="step-row"><div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div></div>
       <div class="pt" style="margin-bottom:3px">Which meals do you want to plan?</div>
-      <div class="s-sub">Select the meals you'd like MenuPal to suggest recipes for. You'll set up each one separately.</div>
+      <div class="s-sub">Select the meals you'd like Plateful to suggest recipes for. You'll set up each one separately.</div>
       <div id="mealCheckList" style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
         <div class="meal-check-item" data-meal="breakfast" data-icon="ti-coffee" data-label="Breakfast" data-desc="Morning meal" onclick="toggleMealCheck(this)">
           <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-coffee"></i></div><div><div style="font-size:12px;font-weight:500;color:#7A5C42">Breakfast</div><div style="font-size:10px;color:#B89A82">Morning meal</div></div></div>
@@ -573,7 +580,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- DISH GENERATOR — FIX 5: nav always visible for main screens -->
     <div class="screen" id="scr-generator">
       <div class="ph"><div class="pt">Dish generator</div><i class="ti ti-wand" style="font-size:18px;color:#C47B4A"></i></div>
-      <div class="s-sub">Choose a type and let MenuPal surprise you.</div>
+      <div class="s-sub">Choose a type and let Plateful surprise you.</div>
       <div class="sec-label">Course type</div>
       <div class="filter-wrap" id="courseFilters">
         <button class="fchip any on" onclick="gToggle(this)"><i class="ti ti-wand"></i> Any</button>
@@ -709,7 +716,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         </div>
       </div>
       <div class="divider"></div>
-      <button class="gbtn" onclick="document.getElementById('aboutModal').classList.add('on')"><i class="ti ti-info-circle" style="font-size:15px"></i> About MenuPal</button>
+      <button class="gbtn" onclick="document.getElementById('aboutModal').classList.add('on')"><i class="ti ti-info-circle" style="font-size:15px"></i> About Plateful</button>
       <button class="dbtn"><i class="ti ti-trash" style="font-size:15px"></i> Reset library</button>
     </div>
 
@@ -735,9 +742,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="screen" id="scr-notifications">
       <div class="ph"><button class="back-btn" onclick="nav('home')"><i class="ti ti-chevron-left"></i> Back</button><div class="pt">Notifications</div></div>
       <div class="sec-label" style="margin-bottom:10px">How reminders look on your phone</div>
-      <div class="notif-card"><div class="notif-icon">🍽️</div><div style="flex:1"><div class="notif-app">MenuPal</div><div class="notif-title">Dinner reminder</div><div class="notif-body">Tonight: Honey-glazed chicken · Roasted tomato soup · Cucumber salad</div></div><div class="notif-time">5:00 PM</div></div>
-      <div class="notif-card"><div class="notif-icon">📅</div><div style="flex:1"><div class="notif-app">MenuPal</div><div class="notif-title">Your weekly menu is ready</div><div class="notif-body">19 dishes for the week of May 19–25 are waiting for you.</div></div><div class="notif-time">Mon 8 AM</div></div>
-      <div class="notif-card"><div class="notif-icon">🔄</div><div style="flex:1"><div class="notif-app">MenuPal</div><div class="notif-title">Library updated</div><div class="notif-body">12 new recipes added from Ynet Food and Allrecipes.</div></div><div class="notif-time">Tue 3 AM</div></div>
+      <div class="notif-card"><div class="notif-icon">🍽️</div><div style="flex:1"><div class="notif-app">Plateful</div><div class="notif-title">Dinner reminder</div><div class="notif-body">Tonight: Honey-glazed chicken · Roasted tomato soup · Cucumber salad</div></div><div class="notif-time">5:00 PM</div></div>
+      <div class="notif-card"><div class="notif-icon">📅</div><div style="flex:1"><div class="notif-app">Plateful</div><div class="notif-title">Your weekly menu is ready</div><div class="notif-body">19 dishes for the week of May 19–25 are waiting for you.</div></div><div class="notif-time">Mon 8 AM</div></div>
+      <div class="notif-card"><div class="notif-icon">🔄</div><div style="flex:1"><div class="notif-app">Plateful</div><div class="notif-title">Library updated</div><div class="notif-body">12 new recipes added from Ynet Food and Allrecipes.</div></div><div class="notif-time">Tue 3 AM</div></div>
       <div class="divider"></div>
       <div class="error-card"><i class="ti ti-wifi-off"></i><div class="error-title">No internet connection</div><div class="error-sub">Sync will retry automatically next time the app opens with a connection.</div></div>
       <div class="error-card" style="background:#FFF5EE;border-color:#F5C9A8"><i class="ti ti-alert-triangle" style="color:#C47B4A;font-size:28px;display:block;margin-bottom:8px"></i><div class="error-title" style="color:#C47B4A">Site couldn't be scanned</div><div class="error-sub">mako.co.il/baking couldn't be reached during last sync. Will retry next week.</div></div>
@@ -746,7 +753,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- ADD SOURCE -->
     <div class="screen" id="scr-add-source">
       <div class="ph"><button class="back-btn" onclick="nav('settings')"><i class="ti ti-chevron-left"></i> Back</button><div class="pt">Add source</div></div>
-      <div class="s-sub">Paste a homepage URL — MenuPal will scan its navigation and show you the categories to include.</div>
+      <div class="s-sub">Paste a homepage URL — Plateful will scan its navigation and show you the categories to include.</div>
       <div class="search-box" style="margin-bottom:14px"><i class="ti ti-world"></i><input type="text" placeholder="e.g. https://www.somesite.com"/></div>
       <div class="notice"><i class="ti ti-info-circle"></i><div class="notice-text">After scanning, you'll choose which category sub-pages to include in your library.</div></div>
       <div class="sec-label">Detected categories (example)</div>
@@ -778,9 +785,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="modal-overlay" id="aboutModal" onclick="if(event.target===this)this.classList.remove('on')">
     <div class="modal-sheet">
       <div class="modal-handle"></div>
-      <div class="modal-title">MenuPal</div>
+      <div class="modal-title">Plateful</div>
       <div class="modal-sub">Version 0.2.0 · beta mockup</div>
-      <div class="modal-row"><i class="ti ti-shield-check"></i><div><div class="modal-row-label">Copyright &amp; content policy</div><div class="modal-row-desc">MenuPal stores links only — no content is copied</div></div></div>
+      <div class="modal-row"><i class="ti ti-shield-check"></i><div><div class="modal-row-label">Copyright &amp; content policy</div><div class="modal-row-desc">Plateful stores links only — no content is copied</div></div></div>
       <div class="modal-row"><i class="ti ti-lock"></i><div><div class="modal-row-label">Privacy policy</div><div class="modal-row-desc">All data stays on your device</div></div><i class="ti ti-chevron-right schev"></i></div>
       <div class="modal-row"><i class="ti ti-message-circle"></i><div><div class="modal-row-label">Send feedback</div><div class="modal-row-desc">Report a bug or suggest a feature</div></div><i class="ti ti-chevron-right schev"></i></div>
       <div class="modal-row"><i class="ti ti-code"></i><div><div class="modal-row-label">Developer</div><div class="modal-row-desc">Built with ♥ · 2025</div></div></div>
