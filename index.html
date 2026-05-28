@@ -387,6 +387,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🥗</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Allrecipes</div><div class="sc-cat">International</div></div>
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🍰</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Jamie Oliver</div><div class="sc-cat">British &amp; world</div></div>
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji"></span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Tnuva Recipes</div><div class="sc-cat">Dairy &amp; more</div></div>
+        <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🍗</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Lichtenstadt</div><div class="sc-cat">Israeli home cooking</div></div>
+        <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🥘</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Limor Tiroche</div><div class="sc-cat">Israeli recipes</div></div>
+        <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🫕</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Heli Group</div><div class="sc-cat">Family cooking</div></div>
         <div class="site-card add"><i class="ti ti-plus" style="font-size:16px;color:#C47B4A"></i><span>Add custom URL</span></div>
       </div>
       <div style="font-size:11px;color:#9A6840;text-align:center;margin-bottom:12px" id="siteCount">2 sites selected</div>
@@ -724,6 +727,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         </div>
       </div>
       <div class="sgroup">
+        <div class="sglabel"><i class="ti ti-users"></i> Family &amp; dietary</div>
+        <div class="srows">
+          <div class="srow"><i class="ti ti-star sicon"></i><div class="sinfo"><div class="sname">Kosher kitchen</div><div class="sdesc">Affects suggested recipes</div></div><button class="stoggle on" onclick="this.classList.toggle('on');showSaved()"></button></div>
+          <div class="srow"><i class="ti ti-user sicon"></i><div class="sinfo"><div class="sname">Family members</div><div class="sdesc">Add preferences &amp; restrictions</div></div><i class="ti ti-chevron-right schev"></i></div>
+          <div class="srow"><i class="ti ti-calendar-event sicon"></i><div class="sinfo"><div class="sname">Holiday menus</div><div class="sdesc">Pesach, Rosh Hashana &amp; more</div></div><i class="ti ti-chevron-right schev"></i></div>
+        </div>
+      </div>
+      <div class="sgroup">
         <div class="sglabel"><i class="ti ti-world"></i> Recipe sources</div>
         <div class="srows">
           <div class="srow"><i class="ti ti-link sicon"></i><div class="sinfo"><div class="sname">Ynet Food</div><div class="sdesc">3 categories · synced 2 days ago</div></div><button class="stoggle on" onclick="this.classList.toggle('on');showSaved()"></button></div>
@@ -839,33 +850,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="modal-overlay" id="timePickerModal" onclick="if(event.target===this)closeTimePicker()">
     <div class="modal-sheet">
       <div class="modal-handle"></div>
-      <div class="modal-title" id="tpTitle">Set time</div>
-      <div style="margin-bottom:14px"></div>
-            <div style="display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:20px">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
-          <div style="font-size:10px;color:#B89A82;font-weight:600;text-transform:uppercase;letter-spacing:.4px">Hour</div>
-          <input type="number" id="tpHourInput" min="1" max="12" value="5"
-            style="width:72px;height:64px;border:1.5px solid #C47B4A;border-radius:12px;background:#FFF5EE;font-size:28px;font-weight:700;color:#C47B4A;text-align:center;outline:none;font-family:inherit;-moz-appearance:textfield"
-            inputmode="numeric" pattern="[0-9]*"
-            oninput="tpH=Math.min(12,Math.max(1,parseInt(this.value)||1));updateTPHidden()">
-        </div>
-        <div style="font-size:36px;font-weight:700;color:#C47B4A;margin-top:18px">:</div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
-          <div style="font-size:10px;color:#B89A82;font-weight:600;text-transform:uppercase;letter-spacing:.4px">Min</div>
-          <input type="number" id="tpMinInput" min="0" max="59" value="0" step="15"
-            style="width:72px;height:64px;border:1.5px solid #E8D5C4;border-radius:12px;background:#fff;font-size:28px;font-weight:700;color:#7A5C42;text-align:center;outline:none;font-family:inherit;-moz-appearance:textfield"
-            inputmode="numeric" pattern="[0-9]*"
-            oninput="tpM=Math.min(59,Math.max(0,parseInt(this.value)||0));updateTPHidden()">
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:18px">
-          <button id="tpAmPmBtn" onclick="toggleAmPm()"
-            style="width:64px;height:64px;border:1.5px solid #E8D5C4;border-radius:12px;background:#fff;font-size:18px;font-weight:700;color:#7A5C42;cursor:pointer;font-family:inherit">PM</button>
-        </div>
-      </div>
-      <div style="font-size:11px;color:#B89A82;text-align:center;margin-bottom:14px">Tap the hour or minutes to type. Tap AM/PM to toggle.</div>
+      <div class="modal-title" id="tpTitle">Set reminder time</div>
+      <div style="font-size:11px;color:#B89A82;text-align:center;margin-bottom:10px">Tap a time to select</div>
+      <div id="tpTimeList" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;max-height:260px;overflow-y:auto;margin-bottom:12px;padding:2px"></div>
       <div id="tpHour" style="display:none">5</div>
       <div id="tpMin" style="display:none">00</div>
-      <div id="tpAmPm" style="display:none">PM</div>      <div id="tpMin" style="display:none">00</div>
       <div id="tpAmPm" style="display:none">PM</div>
       <button class="tp-confirm" onclick="confirmTime()">Confirm</button>
     </div>
@@ -1189,38 +1178,49 @@ function openMealStructureMenu(){
   nav('meal-structure');
   setTimeout(()=>{
     const container=document.getElementById('mealStructureMenu');
-    if(!container){showToast('Error: container not found');return;}
+    if(!container)return;
     container.innerHTML='';
-    // Ensure selectedMeals has at least dinner
-    if(!selectedMeals||!selectedMeals.length)selectedMeals=['dinner'];
-    const meals=selectedMeals&&selectedMeals.length?selectedMeals:['dinner'];
+    const meals=Array.isArray(selectedMeals)&&selectedMeals.length?selectedMeals:['dinner'];
+    let added=0;
     meals.forEach(mKey=>{
       const m=MEAL_DEFS[mKey];
       if(!m)return;
-      const names=(m.courses||[]).map(c=>c.name).join(' · ')||'No courses defined';
+      added++;
+      const names=(m.courses||[]).map(c=>c.name).join(' · ')||'(no courses yet)';
       const card=document.createElement('div');
       card.className='ccard';
-      card.style.cssText='cursor:pointer;margin-bottom:8px';
+      card.style.cssText='cursor:pointer;margin-bottom:6px';
       card.innerHTML=`
-        <div class="ci" style="width:34px;height:34px;font-size:15px"><i class="ti ${m.icon||'ti-bowl'}"></i></div>
+        <div class="ci" style="width:34px;height:34px;font-size:15px">
+          <i class="ti ${m.icon||'ti-bowl'}"></i>
+        </div>
         <div class="cb">
           <div class="cn">${m.label}</div>
           <div class="csc" style="white-space:normal;line-height:1.5">${names}</div>
         </div>
-        <i class="ti ti-chevron-right" style="font-size:13px;color:#C8A98A"></i>`;
+        <i class="ti ti-pencil" style="font-size:14px;color:#C47B4A;flex-shrink:0"></i>`;
       card.onclick=()=>openMealEditor(mKey);
       container.appendChild(card);
     });
-    // Add meal card
-    const addCard=document.createElement('div');
-    addCard.className='ccard';
-    addCard.style.cssText='cursor:pointer;border-style:dashed;margin-bottom:8px';
-    addCard.innerHTML='<div class="ci" style="width:34px;height:34px;font-size:15px;background:#E1F5EE;color:#0F6E56"><i class="ti ti-plus"></i></div><div class="cb"><div class="cn" style="color:#0F6E56">Add a meal…</div></div>';
-    addCard.onclick=()=>showToast('Add meal: tap the chip selectors in onboarding to configure');
-    container.appendChild(addCard);
-  },50);
+    if(!added){
+      container.innerHTML='<div class="empty-state" style="padding:20px 0">No meals set up yet.<br>Complete onboarding first.</div>';
+    }
+    // Add meal button
+    const addBtn=document.createElement('button');
+    addBtn.className='secondary-btn';
+    addBtn.style.marginTop='10px';
+    addBtn.innerHTML='<i class="ti ti-plus"></i><span>Add a meal</span>';
+    addBtn.onclick=()=>{
+      const opts=['breakfast','lunch','brunch','snack'].filter(k=>!selectedMeals.includes(k));
+      if(!opts.length){showToast('All meals already added');return;}
+      const next=opts[0];
+      selectedMeals.push(next);
+      showToast((MEAL_DEFS[next]?.label||next)+' added');
+      openMealStructureMenu();
+    };
+    container.appendChild(addBtn);
+  },80);
 }
-
 function openMealEditor(mKey){
   editingMeal=mKey;
   const m=MEAL_DEFS[mKey];
@@ -1293,63 +1293,68 @@ function buildOb5Reminders(){
   });
 }
 
-// TIME PICKER — numeric input
-const HOURS=[1,2,3,4,5,6,7,8,9,10,11,12];
-const MINS=['00','15','30','45'];
-const AMPMS=['AM','PM'];
-let tpH=5,tpM=0,tpAP='PM',tpTargetBtn=null;
+// TIME PICKER — tap-a-time list
+const TP_TIMES = [
+  '6:00 AM','6:30 AM','7:00 AM','7:30 AM','8:00 AM','8:30 AM',
+  '9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM',
+  '12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM',
+  '3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM',
+  '6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM','8:30 PM',
+  '9:00 PM','9:30 PM','10:00 PM','10:30 PM','11:00 PM','11:30 PM',
+];
+let tpH=5, tpM=0, tpAP='PM', tpTargetBtn=null, tpSelected='5:00 PM';
 
-function tpValidate(inp,min,max){
-  let v=parseInt(inp.value);
-  if(isNaN(v))return;
-  v=Math.max(min,Math.min(max,v));
-  if(inp.id==='tpHourInput')tpH=v;
-  else tpM=v;
-}
-
-function openTimePicker(targetId,title){
-  tpTargetBtn=document.getElementById(targetId);
+function openTimePicker(targetId, title){
+  tpTargetBtn = document.getElementById(targetId);
   if(!tpTargetBtn){
     document.querySelectorAll('.sval').forEach(b=>{
-      if((b.getAttribute('onclick')||'').includes(targetId))tpTargetBtn=b;
+      if((b.getAttribute('onclick')||'').includes(targetId)) tpTargetBtn=b;
     });
   }
-  document.getElementById('tpTitle').textContent=title||'Set time';
-  if(tpTargetBtn){
-    const t=tpTargetBtn.textContent.match(/(\d+):(\d+)\s*(AM|PM)/i);
-    if(t){tpH=parseInt(t[1]);tpM=parseInt(t[2]);tpAP=t[3].toUpperCase();}
-  }
-  const hi=document.getElementById('tpHourInput');
-  const mi=document.getElementById('tpMinInput');
-  const ab=document.getElementById('tpAmPmBtn');
-  if(hi)hi.value=tpH;
-  if(mi)mi.value=String(tpM).padStart(2,'0');
-  if(ab){ab.textContent=tpAP;}
+  document.getElementById('tpTitle').textContent = title||'Set reminder time';
+  tpSelected = tpTargetBtn ? tpTargetBtn.textContent.trim() : '5:00 PM';
+  // Build list
+  const list = document.getElementById('tpTimeList');
+  if(!list) return;
+  list.innerHTML = '';
+  TP_TIMES.forEach(t=>{
+    const btn = document.createElement('button');
+    const isSelected = t === tpSelected;
+    btn.style.cssText = `padding:10px 4px;border-radius:10px;border:1.5px solid ${isSelected?'#C47B4A':'#E8D5C4'};background:${isSelected?'#C47B4A':'#fff'};color:${isSelected?'#fff':'#7A5C42'};font-size:12px;font-weight:${isSelected?'700':'400'};cursor:pointer;font-family:inherit;transition:all .1s`;
+    btn.textContent = t;
+    btn.onclick = ()=>{
+      tpSelected = t;
+      // update highlight
+      list.querySelectorAll('button').forEach(b=>{
+        const sel = b.textContent===t;
+        b.style.background = sel?'#C47B4A':'#fff';
+        b.style.color = sel?'#fff':'#7A5C42';
+        b.style.borderColor = sel?'#C47B4A':'#E8D5C4';
+        b.style.fontWeight = sel?'700':'400';
+      });
+    };
+    list.appendChild(btn);
+  });
+  // Scroll to selected
+  setTimeout(()=>{
+    const selBtn = [...list.querySelectorAll('button')].find(b=>b.textContent===tpSelected);
+    if(selBtn) selBtn.scrollIntoView({block:'center',behavior:'smooth'});
+  },50);
   document.getElementById('timePickerModal').classList.add('on');
 }
 
-function closeTimePicker(){document.getElementById('timePickerModal').classList.remove('on');}
-
-function toggleAmPm(){
-  tpAP=tpAP==='AM'?'PM':'AM';
-  const ab=document.getElementById('tpAmPmBtn');
-  if(ab)ab.textContent=tpAP;
-}
-
+function closeTimePicker(){ document.getElementById('timePickerModal').classList.remove('on'); }
+function toggleAmPm(){}
+function tpValidate(){}
 function adj(){}
 function buildDrum(){}
 function updateTPDisplay(){}
 
 function confirmTime(){
-  const hi=document.getElementById('tpHourInput');
-  const mi=document.getElementById('tpMinInput');
-  if(hi)tpH=Math.max(1,Math.min(12,parseInt(hi.value)||5));
-  if(mi)tpM=Math.max(0,Math.min(59,parseInt(mi.value)||0));
-  const t=tpH+':'+String(tpM).padStart(2,'0')+' '+tpAP;
-  if(tpTargetBtn)tpTargetBtn.textContent=t;
+  if(tpTargetBtn && tpSelected) tpTargetBtn.textContent = tpSelected;
   closeTimePicker();
   showSaved();
-  showToast('Time set to '+t);
+  showToast('Time set to '+tpSelected);
 }
 
 // DIET FILTER (multi-select)
