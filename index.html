@@ -323,8 +323,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .meal-card.open .meal-card-chev{transform:rotate(180deg)}
 .meal-card-body{display:none;padding:10px 12px 12px}
 .meal-card.open .meal-card-body{display:block}
-.wand-spin{animation:wandSpin 0.6s ease forwards!important}
-@keyframes wandSpin{0%{transform:rotate(0deg) scale(1)}40%{transform:rotate(-20deg) scale(1.2)}70%{transform:rotate(15deg) scale(1.1)}100%{transform:rotate(0deg) scale(1)}}
+@keyframes wandSpin{
+  0%  {transform:rotate(0deg)   scale(1)  }
+  25% {transform:rotate(-25deg) scale(1.3)}
+  60% {transform:rotate(20deg)  scale(1.15)}
+  80% {transform:rotate(-10deg) scale(1.05)}
+  100%{transform:rotate(0deg)   scale(1)  }
+}
+.wand-spin{
+  animation:wandSpin 0.65s cubic-bezier(.36,.07,.19,.97) forwards!important;
+  display:inline-block!important;
+}
 </style>
 </head>
 <body>
@@ -576,13 +585,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button style="background:#C47B4A;color:#fff;border:none;border-radius:10px;padding:7px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px" onclick="nav('add')"><i class="ti ti-plus" style="font-size:13px"></i> Add</button>
       </div>
       <div class="lib-search"><i class="ti ti-search"></i><input type="text" placeholder="Search recipes…" oninput="filterLib(this.value)"></div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;align-items:center" id="libDietFilters">
-        <span style="font-size:10px;color:#B89A82;font-weight:500;white-space:nowrap">Dietary:</span>
-        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Dairy')">Dairy</button>
-        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Meat')">Meat</button>
-        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Fish')">Fish</button>
-        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Vegan')">Vegan</button>
-        <button class="fchip" style="font-size:10px;padding:3px 9px" onclick="toggleDietFilter(this,'Vegetarian')">Veg</button>
+      <div id="libDietFilters" style="display:flex;flex-direction:row;gap:5px;overflow-x:auto;margin-bottom:8px;padding-bottom:2px;align-items:center;flex-wrap:nowrap;-webkit-overflow-scrolling:touch">
+        <span style="font-size:10px;color:#B89A82;font-weight:500;white-space:nowrap;flex-shrink:0">Dietary:</span>
+        <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Dairy')">Dairy</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Meat')">Meat</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Fish')">Fish</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Vegan')">Vegan</button>
+        <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Vegetarian')">Vegetarian</button>
       </div>
       <div class="cat-scroll" id="libcats"></div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
@@ -612,7 +621,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button class="fchip" onclick="gToggle(this)"><i class="ti ti-cheese"></i> Appetizer</button>
         <button class="fchip" onclick="gToggle(this)"><i class="ti ti-bottle"></i> Gravy &amp; dressing</button>
       </div>
-      <button class="primary-btn" style="margin-bottom:14px;border-radius:14px" onclick="generate()"><i class="ti ti-wand" id="wandIcon" style="font-size:20px;color:#FFD9B0;transition:transform 0.5s"></i><span>Surprise me</span></button>
+      <button class="primary-btn" style="margin-bottom:14px;border-radius:14px;border:none" onclick="generate()"><svg id="wandIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD9B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M15 4l5 5-10 10-5-5z"/><line x1="9" y1="15" x2="4" y2="20"/><line x1="14.5" y1="8.5" x2="15.5" y2="7.5"/></svg><span style="color:#fff;font-size:15px;font-weight:700;margin-left:8px">Surprise me</span></button>
       <div class="result-card" id="resultCard">
         <div class="result-img"><i class="ti ti-bowl" id="resultIcon"></i></div>
         <div class="result-body">
@@ -832,22 +841,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="modal-handle"></div>
       <div class="modal-title" id="tpTitle">Set time</div>
       <div style="margin-bottom:14px"></div>
-      <div class="tp-wheel-wrap">
-        <div class="tp-col">
-          <div class="tp-col-label">Hour</div>
-          <div class="tp-drum" id="drumHour"><div class="tp-drum-sel"></div><div class="tp-drum-scroll" id="scrollHour"></div></div>
+            <div style="display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:20px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <div style="font-size:10px;color:#B89A82;font-weight:600;text-transform:uppercase;letter-spacing:.4px">Hour</div>
+          <input type="number" id="tpHourInput" min="1" max="12" value="5"
+            style="width:72px;height:64px;border:1.5px solid #C47B4A;border-radius:12px;background:#FFF5EE;font-size:28px;font-weight:700;color:#C47B4A;text-align:center;outline:none;font-family:inherit;-moz-appearance:textfield"
+            inputmode="numeric" pattern="[0-9]*"
+            oninput="tpH=Math.min(12,Math.max(1,parseInt(this.value)||1));updateTPHidden()">
         </div>
-        <div class="tp-col">
-          <div class="tp-col-label">Min</div>
-          <div class="tp-drum" id="drumMin"><div class="tp-drum-sel"></div><div class="tp-drum-scroll" id="scrollMin"></div></div>
+        <div style="font-size:36px;font-weight:700;color:#C47B4A;margin-top:18px">:</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <div style="font-size:10px;color:#B89A82;font-weight:600;text-transform:uppercase;letter-spacing:.4px">Min</div>
+          <input type="number" id="tpMinInput" min="0" max="59" value="0" step="15"
+            style="width:72px;height:64px;border:1.5px solid #E8D5C4;border-radius:12px;background:#fff;font-size:28px;font-weight:700;color:#7A5C42;text-align:center;outline:none;font-family:inherit;-moz-appearance:textfield"
+            inputmode="numeric" pattern="[0-9]*"
+            oninput="tpM=Math.min(59,Math.max(0,parseInt(this.value)||0));updateTPHidden()">
         </div>
-        <div class="tp-col">
-          <div class="tp-col-label">AM/PM</div>
-          <div class="tp-drum" id="drumAmPm"><div class="tp-drum-sel"></div><div class="tp-drum-scroll" id="scrollAmPm"></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:18px">
+          <button id="tpAmPmBtn" onclick="toggleAmPm()"
+            style="width:64px;height:64px;border:1.5px solid #E8D5C4;border-radius:12px;background:#fff;font-size:18px;font-weight:700;color:#7A5C42;cursor:pointer;font-family:inherit">PM</button>
         </div>
       </div>
+      <div style="font-size:11px;color:#B89A82;text-align:center;margin-bottom:14px">Tap the hour or minutes to type. Tap AM/PM to toggle.</div>
       <div id="tpHour" style="display:none">5</div>
       <div id="tpMin" style="display:none">00</div>
+      <div id="tpAmPm" style="display:none">PM</div>      <div id="tpMin" style="display:none">00</div>
       <div id="tpAmPm" style="display:none">PM</div>
       <button class="tp-confirm" onclick="confirmTime()">Confirm</button>
     </div>
@@ -1069,10 +1087,12 @@ function gToggle(chip){if(chip.classList.contains('any')){document.querySelector
 function generate(){const anyMode=!!document.querySelector('#courseFilters .any.on');const active=[...document.querySelectorAll('#courseFilters .fchip.on:not(.any)')].map(c=>c.textContent.trim().replace(/^\S+\s/,''));let pool=anyMode?ALL_GEN:ALL_GEN.filter(r=>active.includes(r.course));if(!pool.length)pool=ALL_GEN;if(genLastPick&&pool.length>1)pool=pool.filter(r=>r.name!==genLastPick.name);const pick=pool[Math.floor(Math.random()*pool.length)];genLastPick=pick;genSaved=false;document.getElementById('resultCourse').textContent=pick.course;document.getElementById('resultName').textContent=pick.name;document.getElementById('resultSrc').textContent=pick.src;document.getElementById('resultIcon').className='ti '+pick.ic;document.getElementById('resultCard').classList.add('on');
   const wi=document.getElementById('wandIcon');
   if(wi){
-    wi.classList.remove('wand-spin');
+    wi.style.transition='none';
+    wi.style.transform='rotate(0deg)';
     void wi.offsetWidth;
-    wi.classList.add('wand-spin');
-    setTimeout(()=>wi.classList.remove('wand-spin'),700);
+    wi.style.transition='transform 0.5s ease-in-out';
+    wi.style.transform='rotate(360deg)';
+    setTimeout(()=>{wi.style.transition='none';wi.style.transform='';},550);
   }
   const sb=document.getElementById('saveBtn');sb.innerHTML='<i class="ti ti-heart"></i> Save';sb.style.background='#E1F5EE';sb.style.color='#085041';const h=document.getElementById('genHistory');const row=document.createElement('div');row.className='ccard';row.style.marginBottom='5px';row.innerHTML=`<div class="ci"><i class="ti ${pick.ic}"></i></div><div class="cb"><div class="cc">${pick.course}</div><div class="cn">${pick.name}</div><div class="csc">${pick.src}</div></div>`;if(h.querySelector('.empty-state'))h.innerHTML='';h.insertBefore(row,h.firstChild);if(h.children.length>3)h.removeChild(h.lastChild);}
 function toggleSave(){genSaved=!genSaved;const sb=document.getElementById('saveBtn');sb.innerHTML=`<i class="ti ti-heart"></i> ${genSaved?'Saved':'Save'}`;sb.style.background=genSaved?'#C47B4A':'#E1F5EE';sb.style.color=genSaved?'#fff':'#085041';}
@@ -1167,38 +1187,40 @@ function obAddCourse(){const inp=document.getElementById('obNewCourse');const na
 let editingMeal=null;
 function openMealStructureMenu(){
   nav('meal-structure');
-  const container=document.getElementById('mealStructureMenu');
-  if(!container){showToast('Error loading meal structure');return;}
-  container.innerHTML='';
-  if(!selectedMeals||!selectedMeals.length){
-    container.innerHTML='<div class="empty-state">No meals configured. Set up meals in onboarding or add them here.</div>';
-    nav('meal-structure');return;
-  }
-  selectedMeals.forEach(mKey=>{
-    const m=MEAL_DEFS[mKey];
-    if(!m)return;
-    const names=(m.courses||[]).map(c=>c.name).join(' · ')||'No courses defined';
-    const card=document.createElement('div');
-    card.className='ccard';
-    card.style.cursor='pointer';
-    card.innerHTML=`
-      <div class="ci" style="width:34px;height:34px;font-size:15px"><i class="ti ${m.icon||'ti-bowl'}"></i></div>
-      <div class="cb">
-        <div class="cn">${m.label}</div>
-        <div class="csc" style="white-space:normal;line-height:1.5">${names}</div>
-      </div>
-      <i class="ti ti-chevron-right" style="font-size:13px;color:#C8A98A"></i>`;
-    card.onclick=()=>openMealEditor(mKey);
-    container.appendChild(card);
-  });
-  // Add "Add meal" card
-  const addCard=document.createElement('div');
-  addCard.className='ccard';
-  addCard.style.cssText='cursor:pointer;border-style:dashed';
-  addCard.innerHTML='<div class="ci" style="width:34px;height:34px;font-size:15px;background:#E1F5EE;color:#0F6E56"><i class="ti ti-plus"></i></div><div class="cb"><div class="cn" style="color:#0F6E56">Add a meal…</div></div>';
-  addCard.onclick=()=>showToast('Add meal: coming soon');
-  container.appendChild(addCard);
+  setTimeout(()=>{
+    const container=document.getElementById('mealStructureMenu');
+    if(!container){showToast('Error: container not found');return;}
+    container.innerHTML='';
+    // Ensure selectedMeals has at least dinner
+    if(!selectedMeals||!selectedMeals.length)selectedMeals=['dinner'];
+    const meals=selectedMeals&&selectedMeals.length?selectedMeals:['dinner'];
+    meals.forEach(mKey=>{
+      const m=MEAL_DEFS[mKey];
+      if(!m)return;
+      const names=(m.courses||[]).map(c=>c.name).join(' · ')||'No courses defined';
+      const card=document.createElement('div');
+      card.className='ccard';
+      card.style.cssText='cursor:pointer;margin-bottom:8px';
+      card.innerHTML=`
+        <div class="ci" style="width:34px;height:34px;font-size:15px"><i class="ti ${m.icon||'ti-bowl'}"></i></div>
+        <div class="cb">
+          <div class="cn">${m.label}</div>
+          <div class="csc" style="white-space:normal;line-height:1.5">${names}</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:13px;color:#C8A98A"></i>`;
+      card.onclick=()=>openMealEditor(mKey);
+      container.appendChild(card);
+    });
+    // Add meal card
+    const addCard=document.createElement('div');
+    addCard.className='ccard';
+    addCard.style.cssText='cursor:pointer;border-style:dashed;margin-bottom:8px';
+    addCard.innerHTML='<div class="ci" style="width:34px;height:34px;font-size:15px;background:#E1F5EE;color:#0F6E56"><i class="ti ti-plus"></i></div><div class="cb"><div class="cn" style="color:#0F6E56">Add a meal…</div></div>';
+    addCard.onclick=()=>showToast('Add meal: tap the chip selectors in onboarding to configure');
+    container.appendChild(addCard);
+  },50);
 }
+
 function openMealEditor(mKey){
   editingMeal=mKey;
   const m=MEAL_DEFS[mKey];
@@ -1271,50 +1293,18 @@ function buildOb5Reminders(){
   });
 }
 
-// WHEEL TIME PICKER — iOS drum-roll style
+// TIME PICKER — numeric input
 const HOURS=[1,2,3,4,5,6,7,8,9,10,11,12];
 const MINS=['00','15','30','45'];
 const AMPMS=['AM','PM'];
 let tpH=5,tpM=0,tpAP='PM',tpTargetBtn=null;
 
-function buildDrum(scrollId, items, selectedIdx){
-  const sc=document.getElementById(scrollId);
-  if(!sc)return;
-  sc.innerHTML='';
-  // top padding
-  const padT=document.createElement('div');padT.className='tp-drum-pad';sc.appendChild(padT);
-  items.forEach((item,idx)=>{
-    const el=document.createElement('div');
-    el.className='tp-drum-item'+(idx===selectedIdx?' sel':'');
-    el.textContent=String(item).padStart(2,'0');
-    el.dataset.idx=idx;
-    sc.appendChild(el);
-  });
-  // bottom padding
-  const padB=document.createElement('div');padB.className='tp-drum-pad';sc.appendChild(padB);
-  // scroll to selection
-  requestAnimationFrame(()=>{
-    sc.scrollTop=selectedIdx*42;
-  });
-  // on scroll snap
-  let st;
-  sc.addEventListener('scroll',()=>{
-    clearTimeout(st);
-    st=setTimeout(()=>{
-      const idx=Math.round(sc.scrollTop/42);
-      const clamped=Math.max(0,Math.min(items.length-1,idx));
-      sc.scrollTop=clamped*42;
-      sc.querySelectorAll('.tp-drum-item').forEach((el,i)=>{
-        el.classList.toggle('sel',i===clamped);
-      });
-      if(scrollId==='scrollHour')tpH=HOURS[clamped];
-      else if(scrollId==='scrollMin')tpM=parseInt(MINS[clamped]);
-      else if(scrollId==='scrollAmPm')tpAP=AMPMS[clamped];
-      document.getElementById('tpHour').textContent=tpH;
-      document.getElementById('tpMin').textContent=String(tpM).padStart(2,'0');
-      document.getElementById('tpAmPm').textContent=tpAP;
-    },120);
-  },{passive:true});
+function tpValidate(inp,min,max){
+  let v=parseInt(inp.value);
+  if(isNaN(v))return;
+  v=Math.max(min,Math.min(max,v));
+  if(inp.id==='tpHourInput')tpH=v;
+  else tpM=v;
 }
 
 function openTimePicker(targetId,title){
@@ -1326,22 +1316,40 @@ function openTimePicker(targetId,title){
   }
   document.getElementById('tpTitle').textContent=title||'Set time';
   if(tpTargetBtn){
-    const t=tpTargetBtn.textContent.match(/(\d+):(\d+)\s*(AM|PM)/);
-    if(t){tpH=parseInt(t[1]);tpM=parseInt(t[2]);tpAP=t[3];}
+    const t=tpTargetBtn.textContent.match(/(\d+):(\d+)\s*(AM|PM)/i);
+    if(t){tpH=parseInt(t[1]);tpM=parseInt(t[2]);tpAP=t[3].toUpperCase();}
   }
-  buildDrum('scrollHour',HOURS,Math.max(0,HOURS.indexOf(tpH)));
-  buildDrum('scrollMin',MINS,Math.max(0,MINS.indexOf(String(tpM).padStart(2,'0'))));
-  buildDrum('scrollAmPm',AMPMS,Math.max(0,AMPMS.indexOf(tpAP)));
+  const hi=document.getElementById('tpHourInput');
+  const mi=document.getElementById('tpMinInput');
+  const ab=document.getElementById('tpAmPmBtn');
+  if(hi)hi.value=tpH;
+  if(mi)mi.value=String(tpM).padStart(2,'0');
+  if(ab){ab.textContent=tpAP;}
   document.getElementById('timePickerModal').classList.add('on');
 }
+
 function closeTimePicker(){document.getElementById('timePickerModal').classList.remove('on');}
-function toggleAmPm(){tpAP=tpAP==='AM'?'PM':'AM';buildDrum('scrollAmPm',AMPMS,AMPMS.indexOf(tpAP));}
+
+function toggleAmPm(){
+  tpAP=tpAP==='AM'?'PM':'AM';
+  const ab=document.getElementById('tpAmPmBtn');
+  if(ab)ab.textContent=tpAP;
+}
+
 function adj(){}
+function buildDrum(){}
 function updateTPDisplay(){}
+
 function confirmTime(){
+  const hi=document.getElementById('tpHourInput');
+  const mi=document.getElementById('tpMinInput');
+  if(hi)tpH=Math.max(1,Math.min(12,parseInt(hi.value)||5));
+  if(mi)tpM=Math.max(0,Math.min(59,parseInt(mi.value)||0));
   const t=tpH+':'+String(tpM).padStart(2,'0')+' '+tpAP;
   if(tpTargetBtn)tpTargetBtn.textContent=t;
-  closeTimePicker();showSaved();showToast('Time set to '+t);
+  closeTimePicker();
+  showSaved();
+  showToast('Time set to '+t);
 }
 
 // DIET FILTER (multi-select)
