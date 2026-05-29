@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plateful</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#C47B4A">
+<meta name="theme-color" content="#3AAFA9">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -14,276 +14,276 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.30.0/iconfont/tabler-icons.min.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#D6CEC6;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem 4rem}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#C8EEEC;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem 4rem}
 .desktop-label{font-size:11px;font-weight:600;color:#8A7A6A;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;text-align:center}
 .desktop-hint{font-size:11px;color:#A09080;margin-bottom:20px;text-align:center}
-.phone{width:320px;background:#FFF8F2;border-radius:40px;border:3px solid #D8C8B8;overflow:hidden;display:flex;flex-direction:column;height:660px;box-shadow:0 20px 60px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.12);position:relative}
-.statusbar{background:#FFF8F2;padding:13px 22px 0;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#9E8272;flex-shrink:0}
-.notch{width:72px;height:19px;background:#E0CEB8;border-radius:0 0 13px 13px;margin:0 auto}
+.phone{width:320px;background:#F4FFFE;border-radius:40px;border:3px solid #9DD5D2;overflow:hidden;display:flex;flex-direction:column;height:660px;box-shadow:0 20px 60px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.12);position:relative}
+.statusbar{background:#F4FFFE;padding:13px 22px 0;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#4E8E90;flex-shrink:0}
+.notch{width:72px;height:19px;background:#9DD5D2;border-radius:0 0 13px 13px;margin:0 auto}
 .screens{flex:1;position:relative;overflow:hidden}
-.screen{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:0 16px 72px;display:none;background:#FFF8F2}
+.screen{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:0 16px 72px;display:none;background:#F4FFFE}
 .screen.active{display:block}
 .screen::-webkit-scrollbar{display:none}
-.bnav{position:absolute;bottom:0;left:0;right:0;height:64px;background:#FFF8F2;border-top:1.5px solid #E0CEB8;display:flex;align-items:center;justify-content:space-around;border-radius:0 0 37px 37px;z-index:50}
+.bnav{position:absolute;bottom:0;left:0;right:0;height:64px;background:#F4FFFE;border-top:1.5px solid #9DD5D2;display:flex;align-items:center;justify-content:space-around;border-radius:0 0 37px 37px;z-index:50}
 .ni{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;background:none;border:none;padding:4px 12px}
 .ni .ic{font-size:22px;color:#B0988A}
 .ni .lb{font-size:10px;font-weight:500;color:#B0988A}
-.ni.active .ic,.ni.active .lb{color:#C47B4A}
+.ni.active .ic,.ni.active .lb{color:#3AAFA9}
 .ph{padding:14px 0 10px;display:flex;align-items:center;justify-content:space-between}
-.pt{font-size:15px;font-weight:600;color:#7A5C42}
-.back-btn{display:flex;align-items:center;gap:3px;background:none;border:none;cursor:pointer;color:#C47B4A;font-size:12px;font-weight:500;font-family:inherit;padding:4px 0}
+.pt{font-size:15px;font-weight:600;color:#17373A}
+.back-btn{display:flex;align-items:center;gap:3px;background:none;border:none;cursor:pointer;color:#3AAFA9;font-size:12px;font-weight:500;font-family:inherit;padding:4px 0}
 .back-btn i{font-size:16px}
-.s-sub{font-size:11px;color:#B89A82;margin-bottom:14px;line-height:1.6}
-.sec-label{font-size:10px;font-weight:600;color:#B89A82;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-.divider{height:.5px;background:#E8D5C4;margin:4px 0 12px}
+.s-sub{font-size:11px;color:#5E9EA0;margin-bottom:14px;line-height:1.6}
+.sec-label{font-size:10px;font-weight:600;color:#5E9EA0;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.divider{height:.5px;background:#B2DFDB;margin:4px 0 12px}
 .ccards{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-.ccard{background:#fff;border:1.5px solid #E8D5C4;border-radius:13px;padding:9px 11px;display:flex;align-items:center;gap:9px;cursor:pointer;transition:border-color .15s}
-.ccard:hover{border-color:#C47B4A}
-.ci{width:34px;height:34px;border-radius:10px;background:#FFF0E2;display:flex;align-items:center;justify-content:center;font-size:15px;color:#C47B4A;flex-shrink:0}
+.ccard{background:#fff;border:1.5px solid #B2DFDB;border-radius:13px;padding:9px 11px;display:flex;align-items:center;gap:9px;cursor:pointer;transition:border-color .15s}
+.ccard:hover{border-color:#3AAFA9}
+.ci{width:34px;height:34px;border-radius:10px;background:#E0F2F1;display:flex;align-items:center;justify-content:center;font-size:15px;color:#3AAFA9;flex-shrink:0}
 .ci.t{background:#E1F5EE;color:#0F6E56}
 .ci.pu{background:#F3EEFF;color:#4C1D95}
 .cb{flex:1;min-width:0}
-.cc{font-size:9px;color:#B89A82;text-transform:uppercase;letter-spacing:.3px}
-.cn{font-size:11px;font-weight:500;color:#7A5C42;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.csc{font-size:10px;color:#C8A98A}
+.cc{font-size:9px;color:#5E9EA0;text-transform:uppercase;letter-spacing:.3px}
+.cn{font-size:11px;font-weight:500;color:#17373A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.csc{font-size:10px;color:#7EC8C8}
 .ca{display:flex;gap:5px;align-items:center;flex-shrink:0}
 .cbtn{background:none;border:none;cursor:pointer;font-size:14px;color:#D8C0A8;padding:2px}
-.cbtn:hover,.cbtn.lk{color:#C47B4A}
+.cbtn:hover,.cbtn.lk{color:#3AAFA9}
 /* SETTINGS */
 .sgroup{margin-bottom:14px}
-.sglabel{font-size:10px;font-weight:600;color:#C47B4A;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;display:flex;align-items:center;gap:5px}
-.srows{border-radius:13px;overflow:hidden;border:1px solid #E8D5C4}
-.srow{background:#fff;display:flex;align-items:center;gap:10px;padding:11px 12px;border-bottom:.5px solid #F0E6DC}
+.sglabel{font-size:10px;font-weight:600;color:#3AAFA9;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.srows{border-radius:13px;overflow:hidden;border:1px solid #B2DFDB}
+.srow{background:#fff;display:flex;align-items:center;gap:10px;padding:11px 12px;border-bottom:.5px solid #C8F0EE}
 .srow:last-child{border-bottom:none}
-.sicon{font-size:16px;color:#C47B4A;width:22px;text-align:center;flex-shrink:0}
+.sicon{font-size:16px;color:#3AAFA9;width:22px;text-align:center;flex-shrink:0}
 .sinfo{flex:1;min-width:0}
-.sname{font-size:12px;font-weight:500;color:#7A5C42}
-.sdesc{font-size:10px;color:#B89A82;margin-top:1px}
-.stoggle{width:36px;height:20px;border-radius:10px;background:#D8C8BC;border:none;cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
-.stoggle.on{background:#C47B4A}
+.sname{font-size:12px;font-weight:500;color:#17373A}
+.sdesc{font-size:10px;color:#5E9EA0;margin-top:1px}
+.stoggle{width:36px;height:20px;border-radius:10px;background:#B2DFDB;border:none;cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
+.stoggle.on{background:#3AAFA9}
 .stoggle::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
 .stoggle.on::after{left:18px}
-.sval{font-size:11px;font-weight:600;color:#C47B4A;background:#FFF5EE;border:1px solid #F0C8A0;border-radius:8px;padding:4px 9px;cursor:pointer;white-space:nowrap;font-family:inherit}
+.sval{font-size:11px;font-weight:600;color:#3AAFA9;background:#E0F7F6;border:1px solid #80CCC8;border-radius:8px;padding:4px 9px;cursor:pointer;white-space:nowrap;font-family:inherit}
 .sval:hover{background:#FFE8D0}
-.schev{font-size:13px;color:#C8A98A}
+.schev{font-size:13px;color:#7EC8C8}
 .saved-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;background:#E1F5EE;border:1px solid #9FE1CB;color:#085041;border-radius:8px;padding:2px 8px;opacity:0;transition:opacity .3s}
 .saved-badge.show{opacity:1}
 /* FILTER CHIPS */
 .filter-wrap{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
-.fchip{display:flex;align-items:center;gap:4px;background:#fff;border:1.5px solid #E8D5C4;border-radius:20px;padding:5px 10px;cursor:pointer;font-size:11px;font-weight:500;color:#B89A82;font-family:inherit;transition:all .12s}
+.fchip{display:flex;align-items:center;gap:4px;background:#fff;border:1.5px solid #B2DFDB;border-radius:20px;padding:5px 10px;cursor:pointer;font-size:11px;font-weight:500;color:#5E9EA0;font-family:inherit;transition:all .12s}
 .fchip i{font-size:12px}
-.fchip.on{background:#FFF5EE;border-color:#C47B4A;color:#7A5C42}
-.fchip.on i{color:#C47B4A}
-.fchip.any.on{background:#5C2A0E;color:#fff;border-color:#5C2A0E}
-.fchip.any.on i{color:#FFD9B0}
+.fchip.on{background:#E0F7F6;border-color:#3AAFA9;color:#17373A}
+.fchip.on i{color:#3AAFA9}
+.fchip.any.on{background:#1A6B68;color:#fff;border-color:#1A6B68}
+.fchip.any.on i{color:#A8E6DF}
 /* TOAST */
 .toast{position:absolute;bottom:72px;left:50%;transform:translateX(-50%);background:#2D1A0A;color:#fff;border-radius:10px;padding:9px 14px;font-size:11px;font-weight:500;display:none;align-items:center;gap:6px;z-index:100;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 .toast.on{display:flex}
 /* MODAL (about + time picker) */
 .modal-overlay{position:absolute;inset:0;background:rgba(60,30,10,.5);z-index:80;display:none;align-items:flex-end;border-radius:37px;overflow:hidden}
 .modal-overlay.on{display:flex}
-.modal-sheet{background:#FFF8F2;border-radius:22px 22px 0 0;padding:18px 18px 30px;width:100%}
-.modal-handle{width:36px;height:4px;background:#E8D5C4;border-radius:2px;margin:0 auto 16px}
-.modal-title{font-size:14px;font-weight:600;color:#7A5C42;margin-bottom:3px}
-.modal-sub{font-size:11px;color:#B89A82;margin-bottom:14px}
-.modal-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:.5px solid #F0E6DC}
+.modal-sheet{background:#F4FFFE;border-radius:22px 22px 0 0;padding:18px 18px 30px;width:100%}
+.modal-handle{width:36px;height:4px;background:#B2DFDB;border-radius:2px;margin:0 auto 16px}
+.modal-title{font-size:14px;font-weight:600;color:#17373A;margin-bottom:3px}
+.modal-sub{font-size:11px;color:#5E9EA0;margin-bottom:14px}
+.modal-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:.5px solid #C8F0EE}
 .modal-row:last-child{border-bottom:none}
-.modal-row i{font-size:16px;color:#C47B4A;width:20px;text-align:center}
-.modal-row-label{font-size:12px;font-weight:500;color:#7A5C42}
-.modal-row-desc{font-size:10px;color:#B89A82}
-.modal-close{width:100%;margin-top:16px;background:#F5EAE0;border:none;border-radius:12px;padding:11px;font-size:13px;font-weight:600;color:#7A5C42;cursor:pointer;font-family:inherit}
+.modal-row i{font-size:16px;color:#3AAFA9;width:20px;text-align:center}
+.modal-row-label{font-size:12px;font-weight:500;color:#17373A}
+.modal-row-desc{font-size:10px;color:#5E9EA0}
+.modal-close{width:100%;margin-top:16px;background:#C8F0EE;border:none;border-radius:12px;padding:11px;font-size:13px;font-weight:600;color:#17373A;cursor:pointer;font-family:inherit}
 /* TIME PICKER MODAL */
 /* iOS-style wheel */
 .tp-wheel-wrap{display:flex;gap:12px;justify-content:center;margin-bottom:16px;position:relative}
 .tp-col{display:flex;flex-direction:column;align-items:center;gap:4px}
-.tp-col-label{font-size:10px;color:#B89A82;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
-.tp-drum{width:72px;height:150px;overflow:hidden;position:relative;border-radius:14px;background:#fff;border:1.5px solid #E8D5C4}
+.tp-col-label{font-size:10px;color:#5E9EA0;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.tp-drum{width:72px;height:150px;overflow:hidden;position:relative;border-radius:14px;background:#fff;border:1.5px solid #B2DFDB}
 .tp-drum::before,.tp-drum::after{content:'';position:absolute;left:0;right:0;height:54px;z-index:2;pointer-events:none}
 .tp-drum::before{top:0;background:linear-gradient(to bottom,rgba(255,248,242,.95),rgba(255,248,242,0))}
 .tp-drum::after{bottom:0;background:linear-gradient(to top,rgba(255,248,242,.95),rgba(255,248,242,0))}
-.tp-drum-sel{position:absolute;top:54px;left:0;right:0;height:42px;background:#FFF5EE;border-top:1.5px solid #C47B4A;border-bottom:1.5px solid #C47B4A;z-index:1;pointer-events:none;border-radius:0}
+.tp-drum-sel{position:absolute;top:54px;left:0;right:0;height:42px;background:#E0F7F6;border-top:1.5px solid #3AAFA9;border-bottom:1.5px solid #3AAFA9;z-index:1;pointer-events:none;border-radius:0}
 .tp-drum-scroll{position:absolute;inset:0;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .tp-drum-scroll::-webkit-scrollbar{display:none}
-.tp-drum-item{height:42px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;color:#B89A82;scroll-snap-align:start;transition:color .1s,font-weight .1s}
-.tp-drum-item.sel{color:#C47B4A;font-weight:700}
+.tp-drum-item{height:42px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;color:#5E9EA0;scroll-snap-align:start;transition:color .1s,font-weight .1s}
+.tp-drum-item.sel{color:#3AAFA9;font-weight:700}
 .tp-drum-pad{height:54px;flex-shrink:0}
 .tp-display{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
-.tp-num{font-size:36px;font-weight:700;color:#7A5C42;background:#FFF5EE;border:1px solid #F0C8A0;border-radius:12px;padding:8px 16px;min-width:70px;text-align:center}
-.tp-sep{font-size:32px;font-weight:700;color:#C47B4A}
-.tp-ampm{font-size:20px;font-weight:600;color:#C47B4A;background:#FFF5EE;border:1px solid #F0C8A0;border-radius:12px;padding:8px 12px;cursor:pointer;font-family:inherit}
+.tp-num{font-size:36px;font-weight:700;color:#17373A;background:#E0F7F6;border:1px solid #80CCC8;border-radius:12px;padding:8px 16px;min-width:70px;text-align:center}
+.tp-sep{font-size:32px;font-weight:700;color:#3AAFA9}
+.tp-ampm{font-size:20px;font-weight:600;color:#3AAFA9;background:#E0F7F6;border:1px solid #80CCC8;border-radius:12px;padding:8px 12px;cursor:pointer;font-family:inherit}
 .tp-controls{display:flex;gap:8px;margin-bottom:14px}
-.tp-btn{flex:1;background:#F5EAE0;border:none;border-radius:10px;padding:9px;font-size:12px;font-weight:500;color:#9A6840;cursor:pointer;font-family:inherit}
-.tp-confirm{width:100%;background:#C47B4A;color:#fff;border:none;border-radius:12px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.tp-btn{flex:1;background:#C8F0EE;border:none;border-radius:10px;padding:9px;font-size:12px;font-weight:500;color:#116466;cursor:pointer;font-family:inherit}
+.tp-confirm{width:100%;background:#3AAFA9;color:#fff;border:none;border-radius:12px;padding:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
 /* BUTTONS */
-.primary-btn{width:100%;background:#5C2A0E;border:none;border-radius:14px;padding:14px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(80,30,5,.35)}
+.primary-btn{width:100%;background:#1A6B68;border:none;border-radius:14px;padding:14px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(80,30,5,.35)}
 .primary-btn span{color:#fff;font-size:14px;font-weight:700}
-.primary-btn i{font-size:18px;color:#FFD9B0}
+.primary-btn i{font-size:18px;color:#A8E6DF}
 .primary-btn:active{transform:scale(.98)}
-.secondary-btn{width:100%;background:#C47B4A;border:none;border-radius:12px;padding:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px}
+.secondary-btn{width:100%;background:#3AAFA9;border:none;border-radius:12px;padding:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px}
 .secondary-btn span{color:#fff;font-size:13px;font-weight:600}
 .secondary-btn i{font-size:15px;color:rgba(255,255,255,.8)}
 /* STEP PROGRESS */
 .step-row{display:flex;justify-content:center;gap:6px;padding:12px 0 10px}
-.step-dot{width:8px;height:8px;border-radius:50%;background:#E8D5C4}
-.step-dot.done{background:#C8A98A}
-.step-dot.active{background:#C47B4A;width:22px;border-radius:4px}
+.step-dot{width:8px;height:8px;border-radius:50%;background:#B2DFDB}
+.step-dot.done{background:#7EC8C8}
+.step-dot.active{background:#3AAFA9;width:22px;border-radius:4px}
 /* ONBOARDING */
 .ob-logo{text-align:center;padding:20px 0 16px}
-.ob-logo-title{font-size:22px;font-weight:600;color:#C47B4A;margin-top:10px}
-.ob-logo-sub{font-size:12px;color:#B89A82;margin-top:3px}
-.cr-box{background:#FFF5EE;border:1.5px solid #F5C9A8;border-radius:14px;padding:14px;margin-bottom:14px}
+.ob-logo-title{font-size:22px;font-weight:600;color:#3AAFA9;margin-top:10px}
+.ob-logo-sub{font-size:12px;color:#5E9EA0;margin-top:3px}
+.cr-box{background:#E0F7F6;border:1.5px solid #80CCC8;border-radius:14px;padding:14px;margin-bottom:14px}
 .cr-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.cr-top i{font-size:20px;color:#C47B4A}
-.cr-title{font-size:13px;font-weight:600;color:#7A5C42}
-.cr-body{font-size:11px;color:#9A6840;line-height:1.7}
+.cr-top i{font-size:20px;color:#3AAFA9}
+.cr-title{font-size:13px;font-weight:600;color:#17373A}
+.cr-body{font-size:11px;color:#116466;line-height:1.7}
 .cr-points{margin:8px 0 0 14px}
-.cr-points li{font-size:11px;color:#9A6840;line-height:1.8}
+.cr-points li{font-size:11px;color:#116466;line-height:1.8}
 .agree-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;cursor:pointer}
 .agree-check{width:18px;height:18px;border-radius:5px;border:1.5px solid #D8C0A8;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.agree-check.on{background:#C47B4A;border-color:#C47B4A}
+.agree-check.on{background:#3AAFA9;border-color:#3AAFA9}
 .agree-check i{font-size:11px;color:#fff;display:none}
 .agree-check.on i{display:block}
-.agree-text{font-size:11px;color:#7A5C42;line-height:1.5}
+.agree-text{font-size:11px;color:#17373A;line-height:1.5}
 /* SEARCH + NOTICE */
-.search-box{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #E8D5C4;border-radius:12px;padding:9px 12px;margin-bottom:10px}
-.search-box i{color:#C47B4A;font-size:15px}
-.search-box input{border:none;background:transparent;font-size:12px;color:#7A5C42;outline:none;flex:1;font-family:inherit}
-.search-box input::placeholder{color:#C8A98A}
-.notice{background:#FFF0E6;border:1px solid #F5C9A8;border-radius:10px;padding:9px 11px;display:flex;gap:8px;align-items:flex-start;margin-bottom:14px}
-.notice i{font-size:14px;color:#C47B4A;margin-top:1px;flex-shrink:0}
-.notice-text{font-size:10px;color:#9A6840;line-height:1.6}
+.search-box{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #B2DFDB;border-radius:12px;padding:9px 12px;margin-bottom:10px}
+.search-box i{color:#3AAFA9;font-size:15px}
+.search-box input{border:none;background:transparent;font-size:12px;color:#17373A;outline:none;flex:1;font-family:inherit}
+.search-box input::placeholder{color:#7EC8C8}
+.notice{background:#FFF0E6;border:1px solid #80CCC8;border-radius:10px;padding:9px 11px;display:flex;gap:8px;align-items:flex-start;margin-bottom:14px}
+.notice i{font-size:14px;color:#3AAFA9;margin-top:1px;flex-shrink:0}
+.notice-text{font-size:10px;color:#116466;line-height:1.6}
 /* SITE CARDS */
 .sites-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.site-card{background:#fff;border:1.5px solid #E8D5C4;border-radius:14px;padding:10px;cursor:pointer;transition:all .12s}
-.site-card.on{border-color:#C47B4A;background:#FFF5EE}
+.site-card{background:#fff;border:1.5px solid #B2DFDB;border-radius:14px;padding:10px;cursor:pointer;transition:all .12s}
+.site-card.on{border-color:#3AAFA9;background:#E0F7F6}
 .site-card.add{border-style:dashed;display:flex;align-items:center;justify-content:center;gap:6px;padding:14px 10px}
-.site-card.add span{font-size:12px;color:#C47B4A}
+.site-card.add span{font-size:12px;color:#3AAFA9}
 .sc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
 .sc-emoji{font-size:20px}
-.sc-check{width:18px;height:18px;border-radius:50%;border:1.5px solid #E8D5C4;display:flex;align-items:center;justify-content:center}
-.site-card.on .sc-check{background:#C47B4A;border-color:#C47B4A}
+.sc-check{width:18px;height:18px;border-radius:50%;border:1.5px solid #B2DFDB;display:flex;align-items:center;justify-content:center}
+.site-card.on .sc-check{background:#3AAFA9;border-color:#3AAFA9}
 .sc-check i{font-size:11px;color:#fff;display:none}
 .site-card.on .sc-check i{display:block}
-.sc-name{font-size:12px;font-weight:500;color:#7A5C42}
-.sc-cat{font-size:10px;color:#B89A82}
+.sc-name{font-size:12px;font-weight:500;color:#17373A}
+.sc-cat{font-size:10px;color:#5E9EA0}
 /* DAY TABS */
 .dtabs{display:flex;gap:4px;margin-bottom:10px;overflow-x:auto}
 .dtabs::-webkit-scrollbar{display:none}
-.dtab{flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding:6px 9px;border-radius:10px;cursor:pointer;border:1.5px solid #E8D5C4;background:#fff;font-family:inherit;min-width:38px}
-.dtab .dn{font-size:10px;font-weight:500;color:#B89A82}
-.dtab .dd{font-size:12px;font-weight:600;color:#B89A82}
-.dtab.active{background:#C47B4A;border-color:#C47B4A}
+.dtab{flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding:6px 9px;border-radius:10px;cursor:pointer;border:1.5px solid #B2DFDB;background:#fff;font-family:inherit;min-width:38px}
+.dtab .dn{font-size:10px;font-weight:500;color:#5E9EA0}
+.dtab .dd{font-size:12px;font-weight:600;color:#5E9EA0}
+.dtab.active{background:#3AAFA9;border-color:#3AAFA9}
 .dtab.active .dn,.dtab.active .dd{color:#fff}
-.dtab.today{border-color:#C47B4A}
-.dtab.today .dn,.dtab.today .dd{color:#C47B4A}
-.summ{background:#FFF5EE;border:1px solid #F5C9A8;border-radius:12px;padding:10px;margin-bottom:10px;display:flex}
+.dtab.today{border-color:#3AAFA9}
+.dtab.today .dn,.dtab.today .dd{color:#3AAFA9}
+.summ{background:#E0F7F6;border:1px solid #80CCC8;border-radius:12px;padding:10px;margin-bottom:10px;display:flex}
 .ss{text-align:center;flex:1}
-.sn2{font-size:16px;font-weight:600;color:#C47B4A}
-.sl2{font-size:10px;color:#B89A82}
+.sn2{font-size:16px;font-weight:600;color:#3AAFA9}
+.sl2{font-size:10px;color:#5E9EA0}
 /* LIBRARY */
-.lib-search{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #E8D5C4;border-radius:11px;padding:8px 10px;margin-bottom:10px}
-.lib-search i{color:#C47B4A;font-size:15px}
-.lib-search input{border:none;background:transparent;font-size:12px;color:#7A5C42;outline:none;flex:1;font-family:inherit}
-.lib-search input::placeholder{color:#C8A98A}
+.lib-search{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #B2DFDB;border-radius:11px;padding:8px 10px;margin-bottom:10px}
+.lib-search i{color:#3AAFA9;font-size:15px}
+.lib-search input{border:none;background:transparent;font-size:12px;color:#17373A;outline:none;flex:1;font-family:inherit}
+.lib-search input::placeholder{color:#7EC8C8}
 .cat-scroll{display:flex;gap:5px;overflow-x:auto;margin-bottom:10px;padding-bottom:2px}
 .cat-scroll::-webkit-scrollbar{display:none}
-.cat-chip{flex-shrink:0;background:#fff;border:1.5px solid #E8D5C4;border-radius:20px;padding:5px 11px;cursor:pointer;font-size:11px;font-weight:500;color:#B89A82;font-family:inherit}
-.cat-chip.on{background:#FFF5EE;border-color:#C47B4A;color:#7A5C42}
+.cat-chip{flex-shrink:0;background:#fff;border:1.5px solid #B2DFDB;border-radius:20px;padding:5px 11px;cursor:pointer;font-size:11px;font-weight:500;color:#5E9EA0;font-family:inherit}
+.cat-chip.on{background:#E0F7F6;border-color:#3AAFA9;color:#17373A}
 .rc-tag{font-size:9px;padding:1px 6px;border-radius:5px;font-weight:500}
 .tag-dairy{background:#EBF4FF;color:#1A4E8A}
-.tag-meat{background:#FFF5EE;color:#7A3A1A}
+.tag-meat{background:#E0F7F6;color:#7A3A1A}
 .tag-veg{background:#E1F5EE;color:#085041}
 .tag-cuisine{background:#F3EEFF;color:#4C1D95}
 .tag-mine{background:#E1F5EE;color:#085041}
 /* SORT MODAL */
-.sort-option{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:.5px solid #F0E6DC;cursor:pointer}
+.sort-option{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:.5px solid #C8F0EE;cursor:pointer}
 .sort-option:last-child{border-bottom:none}
-.sort-option i{font-size:16px;color:#C47B4A;width:20px;text-align:center}
-.sort-option-label{font-size:12px;font-weight:500;color:#7A5C42}
-.sort-option.active-sort .sort-option-label{color:#C47B4A}
+.sort-option i{font-size:16px;color:#3AAFA9;width:20px;text-align:center}
+.sort-option-label{font-size:12px;font-weight:500;color:#17373A}
+.sort-option.active-sort .sort-option-label{color:#3AAFA9}
 /* HOME */
-.banner{background:#C47B4A;border-radius:16px;padding:14px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.banner{background:#3AAFA9;border-radius:16px;padding:14px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
 .banner-text{flex:1}
 .banner-title{font-size:13px;font-weight:500;color:#fff;margin-bottom:2px}
-.banner-sub{font-size:11px;color:#F5C9A8}
-.banner-btn{background:#fff;color:#C47B4A;border:none;border-radius:10px;padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.banner-sub{font-size:11px;color:#80CCC8}
+.banner-btn{background:#fff;color:#3AAFA9;border:none;border-radius:10px;padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
 .day-scroll{display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;padding-bottom:2px}
 .day-scroll::-webkit-scrollbar{display:none}
-.day-chip{flex-shrink:0;background:#fff;border:1.5px solid #E8D5C4;border-radius:10px;padding:5px 10px;font-size:11px;font-weight:500;color:#B89A82;cursor:pointer;font-family:inherit;text-align:center}
-.day-chip .dc-d{font-size:10px;color:#C8A98A;display:block}
-.day-chip.active{background:#FFF5EE;border-color:#C47B4A;color:#7A5C42}
-.day-chip.active .dc-d{color:#C47B4A}
+.day-chip{flex-shrink:0;background:#fff;border:1.5px solid #B2DFDB;border-radius:10px;padding:5px 10px;font-size:11px;font-weight:500;color:#5E9EA0;cursor:pointer;font-family:inherit;text-align:center}
+.day-chip .dc-d{font-size:10px;color:#7EC8C8;display:block}
+.day-chip.active{background:#E0F7F6;border-color:#3AAFA9;color:#17373A}
+.day-chip.active .dc-d{color:#3AAFA9}
 .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
-.qcard{background:#fff;border:1.5px solid #E8D5C4;border-radius:13px;padding:13px;cursor:pointer;transition:border-color .12s}
-.qcard:hover{border-color:#C47B4A}
-.qc-icon{font-size:22px;color:#C47B4A;margin-bottom:6px}
+.qcard{background:#fff;border:1.5px solid #B2DFDB;border-radius:13px;padding:13px;cursor:pointer;transition:border-color .12s}
+.qcard:hover{border-color:#3AAFA9}
+.qc-icon{font-size:22px;color:#3AAFA9;margin-bottom:6px}
 .qc-icon.t{color:#0F6E56}
-.qc-title{font-size:12px;font-weight:500;color:#7A5C42;margin-bottom:2px}
-.qc-sub{font-size:10px;color:#B89A82}
+.qc-title{font-size:12px;font-weight:500;color:#17373A;margin-bottom:2px}
+.qc-sub{font-size:10px;color:#5E9EA0}
 /* RESULT CARD */
-.result-card{background:#fff;border:1.5px solid #C47B4A;border-radius:14px;overflow:hidden;margin-bottom:12px;display:none}
+.result-card{background:#fff;border:1.5px solid #3AAFA9;border-radius:14px;overflow:hidden;margin-bottom:12px;display:none}
 .result-card.on{display:block}
-.result-img{width:100%;height:90px;background:linear-gradient(135deg,#F5EAE0,#FFE8D6);display:flex;align-items:center;justify-content:center}
+.result-img{width:100%;height:90px;background:linear-gradient(135deg,#C8F0EE,#E0F7FA);display:flex;align-items:center;justify-content:center}
 .result-img i{font-size:36px;color:#D4A882}
 .result-body{padding:11px 13px}
-.result-course{font-size:10px;font-weight:600;color:#C47B4A;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
-.result-name{font-size:13px;font-weight:500;color:#7A5C42;margin-bottom:4px}
-.result-src{font-size:11px;color:#B89A82;margin-bottom:10px;display:flex;align-items:center;gap:4px}
+.result-course{font-size:10px;font-weight:600;color:#3AAFA9;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.result-name{font-size:13px;font-weight:500;color:#17373A;margin-bottom:4px}
+.result-src{font-size:11px;color:#5E9EA0;margin-bottom:10px;display:flex;align-items:center;gap:4px}
 .ra-row{display:flex;gap:6px}
 .ra{flex:1;border-radius:9px;padding:8px 4px;font-size:11px;font-weight:500;cursor:pointer;font-family:inherit;border:none;display:flex;align-items:center;justify-content:center;gap:4px}
 .ra i{font-size:13px}
-.ra-open{background:#C47B4A;color:#fff}
-.ra-again{background:#F5EAE0;color:#9A6840}
+.ra-open{background:#3AAFA9;color:#fff}
+.ra-again{background:#C8F0EE;color:#116466}
 .ra-save{background:#E1F5EE;color:#085041}
 /* EMPTY STATE */
-.empty-state{text-align:center;padding:20px 0;font-size:11px;color:#C8A98A}
+.empty-state{text-align:center;padding:20px 0;font-size:11px;color:#7EC8C8}
 /* ADD RECIPE */
-.add-field-group{background:#fff;border:1.5px solid #E8D5C4;border-radius:13px;padding:13px;margin-bottom:10px}
-.add-field-label{font-size:10px;color:#B89A82;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px}
-.add-field-input{font-size:13px;color:#C8A98A;border-bottom:1px solid #F0E6DC;padding-bottom:8px;margin-bottom:10px}
+.add-field-group{background:#fff;border:1.5px solid #B2DFDB;border-radius:13px;padding:13px;margin-bottom:10px}
+.add-field-label{font-size:10px;color:#5E9EA0;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px}
+.add-field-input{font-size:13px;color:#7EC8C8;border-bottom:1px solid #C8F0EE;padding-bottom:8px;margin-bottom:10px}
 .add-photo{background:#F0FBF7;border:1.5px dashed #5DCAA5;border-radius:13px;padding:16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;cursor:pointer}
 .add-photo i{font-size:28px;color:#1D9E75}
 .add-photo-title{font-size:12px;font-weight:500;color:#085041}
 .add-photo-sub{font-size:10px;color:#5DCAA5;margin-top:2px}
 /* FAVOURITES */
 .fav-empty{text-align:center;padding:40px 20px}
-.fav-empty i{font-size:40px;color:#F5C9A8;display:block;margin-bottom:12px}
-.fav-empty-title{font-size:14px;font-weight:500;color:#C47B4A;margin-bottom:6px}
-.fav-empty-sub{font-size:11px;color:#B89A82;line-height:1.6}
+.fav-empty i{font-size:40px;color:#80CCC8;display:block;margin-bottom:12px}
+.fav-empty-title{font-size:14px;font-weight:500;color:#3AAFA9;margin-bottom:6px}
+.fav-empty-sub{font-size:11px;color:#5E9EA0;line-height:1.6}
 /* NOTIFICATIONS */
 .notif-card{background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 2px 12px rgba(0,0,0,.1);margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
-.notif-icon{width:36px;height:36px;border-radius:9px;background:#FFF0E2;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.notif-app{font-size:10px;color:#B89A82;font-weight:500;text-transform:uppercase;letter-spacing:.3px}
+.notif-icon{width:36px;height:36px;border-radius:9px;background:#E0F2F1;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.notif-app{font-size:10px;color:#5E9EA0;font-weight:500;text-transform:uppercase;letter-spacing:.3px}
 .notif-title{font-size:12px;font-weight:600;color:#2D1A0A;margin:2px 0}
-.notif-body{font-size:11px;color:#7A5C42;line-height:1.5}
-.notif-time{font-size:10px;color:#C8A98A;margin-left:auto;flex-shrink:0}
+.notif-body{font-size:11px;color:#17373A;line-height:1.5}
+.notif-time{font-size:10px;color:#7EC8C8;margin-left:auto;flex-shrink:0}
 /* WEEK NAV */
 .wrow{display:flex;align-items:center;gap:5px}
-.wl{font-size:11px;color:#B89A82}
-.arr{background:#FFF5EE;border:1px solid #E8D5C4;border-radius:7px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#C47B4A;font-size:12px}
+.wl{font-size:11px;color:#5E9EA0}
+.arr{background:#E0F7F6;border:1px solid #B2DFDB;border-radius:7px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#3AAFA9;font-size:12px}
 .dbtn{width:100%;background:#FFF0EE;border:1.5px solid #F5C0B0;border-radius:12px;padding:11px;font-size:12px;font-weight:500;color:#C0392B;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px}
 .gbtn{width:100%;background:#F0F9FF;border:1.5px solid #C0DDF5;border-radius:12px;padding:11px;font-size:12px;font-weight:500;color:#1A5CA0;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px}
 .mhdr{display:flex;align-items:center;gap:6px;margin-bottom:6px}
-.mi{font-size:13px;color:#C47B4A}
-.mt2{font-size:12px;font-weight:500;color:#7A5C42;flex:1}
-.mtime{font-size:10px;color:#C8A98A}
-.rbtn{width:100%;background:#5C2A0E;border:none;border-radius:12px;padding:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:10px}
+.mi{font-size:13px;color:#3AAFA9}
+.mt2{font-size:12px;font-weight:500;color:#17373A;flex:1}
+.mtime{font-size:10px;color:#7EC8C8}
+.rbtn{width:100%;background:#1A6B68;border:none;border-radius:12px;padding:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:10px}
 .rbtn span{color:#fff;font-size:13px;font-weight:700}
-.rbtn i{font-size:15px;color:#FFD9B0}
+.rbtn i{font-size:15px;color:#A8E6DF}
 .error-card{background:#FFF0EE;border:1px solid #F5C0B0;border-radius:13px;padding:16px;text-align:center;margin-bottom:14px}
 .error-card i{font-size:28px;color:#C0392B;display:block;margin-bottom:8px}
 .error-title{font-size:13px;font-weight:500;color:#C0392B;margin-bottom:4px}
-.error-sub{font-size:11px;color:#9A6840;line-height:1.5}
+.error-sub{font-size:11px;color:#116466;line-height:1.5}
 /* DAY SELECTOR — FIX: default OFF, clear label for disable-all */
 .day-sel-row{display:flex;gap:4px;margin-top:6px}
-.day-sel{flex:1;background:#fff;border:1.5px solid #E8D5C4;border-radius:7px;padding:5px 0;font-size:10px;font-weight:500;color:#B89A82;cursor:pointer;text-align:center;font-family:inherit;transition:all .12s}
-.day-sel.on{background:#C47B4A;border-color:#C47B4A;color:#fff}
+.day-sel{flex:1;background:#fff;border:1.5px solid #B2DFDB;border-radius:7px;padding:5px 0;font-size:10px;font-weight:500;color:#5E9EA0;cursor:pointer;text-align:center;font-family:inherit;transition:all .12s}
+.day-sel.on{background:#3AAFA9;border-color:#3AAFA9;color:#fff}
 /* REMINDER ROW: with toggle to disable all days */
 .remind-row-header{display:flex;align-items:center;gap:8px;margin-bottom:4px}
-.remind-label{font-size:12px;font-weight:500;color:#7A5C42;flex:1}
-.remind-off-hint{font-size:10px;color:#C8A98A;font-style:italic}
+.remind-label{font-size:12px;font-weight:500;color:#17373A;flex:1}
+.remind-off-hint{font-size:10px;color:#7EC8C8;font-style:italic}
 /* MEAL STRUCTURE EDITOR */
-.meal-editor-row{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #F0E6DC;border-radius:10px;padding:8px 10px;margin-bottom:6px;overflow:visible;width:100%}
+.meal-editor-row{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #C8F0EE;border-radius:10px;padding:8px 10px;margin-bottom:6px;overflow:visible;width:100%}
 .meal-del-btn{
   background:#C0392B!important;
   border:none!important;
@@ -302,24 +302,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   -webkit-text-fill-color:#ffffff!important;
 }
 .meal-del-btn:hover{background:#FACDCA!important;border-color:#E74C3C!important;color:#922B21!important}
-.meal-editor-name{flex:1;min-width:0;font-size:12px;font-weight:500;color:#7A5C42;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meal-editor-name{flex:1;min-width:0;font-size:12px;font-weight:500;color:#17373A;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .meal-editor-count{display:flex;align-items:center;gap:5px}
-.count-btn{width:22px;height:22px;border-radius:6px;border:1px solid #E8D5C4;background:#FFF5EE;color:#C47B4A;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;line-height:1}
-.count-val{font-size:12px;font-weight:500;color:#7A5C42;min-width:16px;text-align:center}
+.count-btn{width:22px;height:22px;border-radius:6px;border:1px solid #B2DFDB;background:#E0F7F6;color:#3AAFA9;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;line-height:1}
+.count-val{font-size:12px;font-weight:500;color:#17373A;min-width:16px;text-align:center}
 .meal-del{background:#FFF0EE;border:none;cursor:pointer;font-size:14px;color:#C0392B;padding:4px 6px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;font-weight:700}
-.meal-check-item{background:#fff;border:1.5px solid #E8D5C4;border-radius:14px;padding:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all .12s}
-.meal-check-item.on{border-color:#C47B4A;background:#FFF5EE}
+.meal-check-item{background:#fff;border:1.5px solid #B2DFDB;border-radius:14px;padding:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all .12s}
+.meal-check-item.on{border-color:#3AAFA9;background:#E0F7F6}
 .mci-left{display:flex;align-items:center;gap:10px}
 .mci-check{width:20px;height:20px;border-radius:50%;border:1.5px solid #D8C0A8;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
-.mci-check.on{background:#C47B4A;border-color:#C47B4A}
-.progress-track{height:3px;background:#E8D5C4;border-radius:2px;margin-bottom:14px;overflow:hidden}
-.progress-fill{height:100%;background:#C47B4A;border-radius:2px;transition:width .3s}
+.mci-check.on{background:#3AAFA9;border-color:#3AAFA9}
+.progress-track{height:3px;background:#B2DFDB;border-radius:2px;margin-bottom:14px;overflow:hidden}
+.progress-fill{height:100%;background:#3AAFA9;border-radius:2px;transition:width .3s}
 .meal-del:hover{color:#9A2A00}
-.meal-card{background:#fff;border:1.5px solid #E8D5C4;border-radius:13px;margin-bottom:8px;overflow:hidden}
-.meal-card-header{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;border-bottom:.5px solid #F0E6DC}
-.meal-card-header i.mi-icon{font-size:15px;color:#C47B4A}
-.meal-card-title{font-size:12px;font-weight:600;color:#7A5C42;flex:1}
-.meal-card-chev{font-size:13px;color:#C8A98A;transition:transform .2s}
+.meal-card{background:#fff;border:1.5px solid #B2DFDB;border-radius:13px;margin-bottom:8px;overflow:hidden}
+.meal-card-header{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;border-bottom:.5px solid #C8F0EE}
+.meal-card-header i.mi-icon{font-size:15px;color:#3AAFA9}
+.meal-card-title{font-size:12px;font-weight:600;color:#17373A;flex:1}
+.meal-card-chev{font-size:13px;color:#7EC8C8;transition:transform .2s}
 .meal-card.open .meal-card-chev{transform:rotate(180deg)}
 .meal-card-body{display:none;padding:10px 12px 12px}
 .meal-card.open .meal-card-body{display:block}
@@ -352,7 +352,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- OB1: COPYRIGHT -->
     <div class="screen active" id="scr-ob1">
       <div class="ob-logo">
-        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" fill="#FFF0E2" stroke="#E8C9A8" stroke-width="1.5"/><ellipse cx="28" cy="34" rx="13" ry="8" fill="#F5C9A8"/><rect x="21" y="25" width="14" height="10" rx="5" fill="#E8A878"/><path d="M22 25 Q22 16 28 15 Q34 16 34 25" stroke="#C47B4A" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="19" r="2" fill="#C47B4A"/><circle cx="32" cy="18" r="2" fill="#C47B4A"/><path d="M16 34 Q28 41 40 34" stroke="#C47B4A" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" fill="#E0F2F1" stroke="#E8C9A8" stroke-width="1.5"/><ellipse cx="28" cy="34" rx="13" ry="8" fill="#80CCC8"/><rect x="21" y="25" width="14" height="10" rx="5" fill="#4DB6AC"/><path d="M22 25 Q22 16 28 15 Q34 16 34 25" stroke="#3AAFA9" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="24" cy="19" r="2" fill="#3AAFA9"/><circle cx="32" cy="18" r="2" fill="#3AAFA9"/><path d="M16 34 Q28 41 40 34" stroke="#3AAFA9" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
         <div class="ob-logo-title">Welcome to Plateful</div>
         <div class="ob-logo-sub">Your personal recipe collection</div>
       </div>
@@ -375,6 +375,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
     <!-- OB2: CHOOSE SITES -->
     <div class="screen" id="scr-ob2">
+      <div style="padding:12px 0 4px;display:flex;justify-content:flex-start">
+        <button class="back-btn" onclick="nav('ob1')"><i class="ti ti-chevron-left"></i> Back</button>
+      </div>
       <div class="step-row"><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div></div>
       <div class="pt" style="margin-bottom:3px">Choose your recipe sources</div>
       <div class="s-sub">Select sites to build your recipe library from.</div>
@@ -390,25 +393,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🍗</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Lichtenstadt</div><div class="sc-cat">Israeli home cooking</div></div>
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🥘</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Limor Tiroche</div><div class="sc-cat">Israeli recipes</div></div>
         <div class="site-card" onclick="toggleSite(this)"><div class="sc-top"><span class="sc-emoji">🫕</span><div class="sc-check"><i class="ti ti-check"></i></div></div><div class="sc-name">Heli Group</div><div class="sc-cat">Family cooking</div></div>
-        <div class="site-card add"><i class="ti ti-plus" style="font-size:16px;color:#C47B4A"></i><span>Add custom URL</span></div>
+        <div class="site-card add"><i class="ti ti-plus" style="font-size:16px;color:#3AAFA9"></i><span>Add custom URL</span></div>
       </div>
-      <div style="font-size:11px;color:#9A6840;text-align:center;margin-bottom:12px" id="siteCount">2 sites selected</div>
+      <div style="font-size:11px;color:#116466;text-align:center;margin-bottom:12px" id="siteCount">2 sites selected</div>
       <button class="secondary-btn" onclick="nav('ob3')"><i class="ti ti-arrow-right"></i><span>Continue</span></button>
     </div>
 
     <!-- OB3: MODE SELECT -->
     <div class="screen" id="scr-ob3">
+      <div style="padding:12px 0 4px;display:flex;justify-content:flex-start">
+        <button class="back-btn" onclick="nav('ob2')"><i class="ti ti-chevron-left"></i> Back</button>
+      </div>
       <div class="step-row"><div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div></div>
       <div class="pt" style="margin-bottom:3px">How would you like to use Plateful?</div>
       <div class="s-sub">Pick your style — you can switch anytime in Settings.</div>
-      <div id="modeWeekly" class="ccard" style="margin-bottom:10px;border-color:#C47B4A;background:#FFF5EE;cursor:pointer;padding:14px" onclick="selectMode('weekly')">
-        <div class="ci" style="background:#FFF0E2;width:44px;height:44px;border-radius:12px"><i class="ti ti-calendar-week" style="font-size:20px"></i></div>
+      <div id="modeWeekly" class="ccard" style="margin-bottom:10px;border-color:#3AAFA9;background:#E0F7F6;cursor:pointer;padding:14px" onclick="selectMode('weekly')">
+        <div class="ci" style="background:#E0F2F1;width:44px;height:44px;border-radius:12px"><i class="ti ti-calendar-week" style="font-size:20px"></i></div>
         <div class="cb">
           <div class="cn" style="font-size:13px;white-space:normal">Weekly menu planner</div>
           <div class="csc" style="white-space:normal;line-height:1.4;margin-top:2px">Full week of meal suggestions on a set day, with reminders.</div>
-          <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px"><span style="font-size:10px;background:#F5EAE0;color:#9A6840;padding:2px 7px;border-radius:20px;border:.5px solid #E8D5C4">Reminders</span><span style="font-size:10px;background:#F5EAE0;color:#9A6840;padding:2px 7px;border-radius:20px;border:.5px solid #E8D5C4">Weekly schedule</span></div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px"><span style="font-size:10px;background:#C8F0EE;color:#116466;padding:2px 7px;border-radius:20px;border:.5px solid #B2DFDB">Reminders</span><span style="font-size:10px;background:#C8F0EE;color:#116466;padding:2px 7px;border-radius:20px;border:.5px solid #B2DFDB">Weekly schedule</span></div>
         </div>
-        <div id="radioWeekly" style="width:28px;height:28px;border-radius:50%;background:#C47B4A;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(196,123,74,.4)"><i class="ti ti-check" style="color:#fff;font-size:16px"></i></div>
+        <div id="radioWeekly" style="width:28px;height:28px;border-radius:50%;background:#3AAFA9;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(196,123,74,.4)"><i class="ti ti-check" style="color:#fff;font-size:16px"></i></div>
       </div>
       <div id="modeDish" class="ccard" style="margin-bottom:14px;cursor:pointer;padding:14px" onclick="selectMode('dish')">
         <div class="ci t" style="width:44px;height:44px;border-radius:12px"><i class="ti ti-wand" style="font-size:20px"></i></div>
@@ -421,7 +427,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <div class="divider"></div>
       <div class="sec-label"><i class="ti ti-refresh" style="vertical-align:-2px;margin-right:4px"></i>Library sync — once a week</div>
-      <div style="font-size:11px;color:#B89A82;margin-bottom:8px">Choose which night the app quietly updates your recipe collection.</div>
+      <div style="font-size:11px;color:#5E9EA0;margin-bottom:8px">Choose which night the app quietly updates your recipe collection.</div>
       <div class="day-sel-row" id="syncDays">
         <button class="day-sel" onclick="selectSyncDay(this)">Sun</button>
         <button class="day-sel" onclick="selectSyncDay(this)">Mon</button>
@@ -437,28 +443,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
     <!-- OB4: MEAL SELECTION — which meals to plan -->
     <div class="screen" id="scr-ob4">
+      <div style="padding:12px 0 4px;display:flex;justify-content:flex-start">
+        <button class="back-btn" onclick="nav('ob3')"><i class="ti ti-chevron-left"></i> Back</button>
+      </div>
       <div class="step-row"><div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div></div>
       <div class="pt" style="margin-bottom:3px">Which meals do you want to plan?</div>
       <div class="s-sub">Select the meals you'd like Plateful to suggest recipes for. You'll set up each one separately.</div>
       <div id="mealCheckList" style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
         <div class="meal-check-item" data-meal="breakfast" data-icon="ti-coffee" data-label="Breakfast" data-desc="Morning meal" onclick="toggleMealCheck(this)">
-          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-coffee"></i></div><div><div style="font-size:12px;font-weight:500;color:#7A5C42">Breakfast</div><div style="font-size:10px;color:#B89A82">Morning meal</div></div></div>
+          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-coffee"></i></div><div><div style="font-size:12px;font-weight:500;color:#17373A">Breakfast</div><div style="font-size:10px;color:#5E9EA0">Morning meal</div></div></div>
           <div class="mci-check"><i class="ti ti-check" style="font-size:11px;color:#fff;display:none"></i></div>
         </div>
         <div class="meal-check-item" data-meal="brunch" data-icon="ti-egg" data-label="Brunch" data-desc="Late morning" onclick="toggleMealCheck(this)">
-          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-egg"></i></div><div><div style="font-size:12px;font-weight:500;color:#7A5C42">Brunch</div><div style="font-size:10px;color:#B89A82">Late morning</div></div></div>
+          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-egg"></i></div><div><div style="font-size:12px;font-weight:500;color:#17373A">Brunch</div><div style="font-size:10px;color:#5E9EA0">Late morning</div></div></div>
           <div class="mci-check"><i class="ti ti-check" style="font-size:11px;color:#fff;display:none"></i></div>
         </div>
         <div class="meal-check-item" data-meal="lunch" data-icon="ti-bowl" data-label="Lunch" data-desc="Midday meal" onclick="toggleMealCheck(this)">
-          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-bowl"></i></div><div><div style="font-size:12px;font-weight:500;color:#7A5C42">Lunch</div><div style="font-size:10px;color:#B89A82">Midday meal</div></div></div>
+          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-bowl"></i></div><div><div style="font-size:12px;font-weight:500;color:#17373A">Lunch</div><div style="font-size:10px;color:#5E9EA0">Midday meal</div></div></div>
           <div class="mci-check"><i class="ti ti-check" style="font-size:11px;color:#fff;display:none"></i></div>
         </div>
         <div class="meal-check-item on" data-meal="dinner" data-icon="ti-tools-kitchen-2" data-label="Dinner" data-desc="Evening meal" onclick="toggleMealCheck(this)">
-          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-tools-kitchen-2"></i></div><div><div style="font-size:12px;font-weight:500;color:#7A5C42">Dinner</div><div style="font-size:10px;color:#B89A82">Evening meal</div></div></div>
+          <div class="mci-left"><div class="ci" style="width:36px;height:36px;font-size:16px;flex-shrink:0"><i class="ti ti-tools-kitchen-2"></i></div><div><div style="font-size:12px;font-weight:500;color:#17373A">Dinner</div><div style="font-size:10px;color:#5E9EA0">Evening meal</div></div></div>
           <div class="mci-check on"><i class="ti ti-check" style="font-size:11px;color:#fff;display:block"></i></div>
         </div>
       </div>
-      <div style="font-size:11px;color:#9A6840;text-align:center;margin-bottom:12px" id="mealCheckCount">1 meal selected — you'll set up its courses next</div>
+      <div style="font-size:11px;color:#116466;text-align:center;margin-bottom:12px" id="mealCheckCount">1 meal selected — you'll set up its courses next</div>
       <button class="secondary-btn" id="ob4Btn" onclick="startMealWizard()"><i class="ti ti-arrow-right"></i><span>Set up each meal</span></button>
     </div>
 
@@ -466,25 +475,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="screen" id="scr-ob4b">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0 6px">
         <button class="back-btn" onclick="mealWizardBack()"><i class="ti ti-chevron-left"></i> Back</button>
-        <button class="back-btn" style="color:#B89A82" onclick="mealWizardSkip()">Skip <i class="ti ti-chevron-right" style="font-size:14px"></i></button>
+        <button class="back-btn" style="color:#5E9EA0" onclick="mealWizardSkip()">Skip <i class="ti ti-chevron-right" style="font-size:14px"></i></button>
       </div>
-      <div class="progress-track" style="height:3px;background:#E8D5C4;border-radius:2px;margin-bottom:14px;overflow:hidden"><div class="progress-fill" id="wizardProgress" style="height:100%;background:#C47B4A;border-radius:2px;transition:width .3s;width:0%"></div></div>
-      <div style="display:inline-flex;align-items:center;gap:6px;background:#FFF5EE;border:1px solid #F5C9A8;border-radius:20px;padding:4px 12px;margin-bottom:8px">
-        <i class="ti" id="wizardMealIcon" style="font-size:14px;color:#C47B4A"></i>
-        <span id="wizardMealStep" style="font-size:11px;font-weight:500;color:#9A6840">1 of 1</span>
+      <div class="progress-track" style="height:3px;background:#B2DFDB;border-radius:2px;margin-bottom:14px;overflow:hidden"><div class="progress-fill" id="wizardProgress" style="height:100%;background:#3AAFA9;border-radius:2px;transition:width .3s;width:0%"></div></div>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:#E0F7F6;border:1px solid #80CCC8;border-radius:20px;padding:4px 12px;margin-bottom:8px">
+        <i class="ti" id="wizardMealIcon" style="font-size:14px;color:#3AAFA9"></i>
+        <span id="wizardMealStep" style="font-size:11px;font-weight:500;color:#116466">1 of 1</span>
       </div>
       <div class="pt" id="wizardMealTitle" style="margin-bottom:3px">Dinner</div>
       <div class="s-sub">Which courses do you want for this meal? Tap × to remove ones you don't need.</div>
       <div id="wizardCourseList" style="margin-bottom:8px"></div>
       <div style="display:flex;gap:6px;margin-bottom:14px">
-        <input type="text" placeholder="Add a course…" id="wizardNewCourse" style="flex:1;background:#fff;border:1.5px solid #E8D5C4;border-radius:9px;padding:7px 10px;font-size:12px;color:#7A5C42;outline:none;font-family:inherit">
-        <button style="background:#C47B4A;color:#fff;border:none;border-radius:9px;padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit" onclick="wizardAddCourse()">+ Add</button>
+        <input type="text" placeholder="Add a course…" id="wizardNewCourse" style="flex:1;background:#fff;border:1.5px solid #B2DFDB;border-radius:9px;padding:7px 10px;font-size:12px;color:#17373A;outline:none;font-family:inherit">
+        <button style="background:#3AAFA9;color:#fff;border:none;border-radius:9px;padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit" onclick="wizardAddCourse()">+ Add</button>
       </div>
       <button class="secondary-btn" onclick="mealWizardNext()"><span id="wizardNextLabel">Next meal</span> <i class="ti ti-arrow-right"></i></button>
     </div>
 
     <!-- OB5: SCHEDULE — FIX 2,3,4: time picker modal, toggle to disable, default OFF -->
     <div class="screen" id="scr-ob5">
+      <div style="padding:12px 0 4px;display:flex;justify-content:flex-start">
+        <button class="back-btn" onclick="nav('ob4')"><i class="ti ti-chevron-left"></i> Back</button>
+      </div>
       <div class="step-row"><div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot active"></div></div>
       <div class="pt" style="margin-bottom:3px">Weekly menu day &amp; reminders</div>
       <div class="s-sub">Choose your menu delivery day. Reminders are off by default — turn on the days you want.</div>
@@ -499,11 +511,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button class="day-sel" onclick="selectMenuDay(this)">Sat</button>
       </div>
       <div class="divider"></div>
-      <div class="sec-label"><i class="ti ti-bell" style="vertical-align:-2px;margin-right:4px"></i>Meal reminders <span style="font-size:9px;color:#B89A82;font-weight:400;text-transform:none">— tap days to enable, tap time to change</span></div>
+      <div class="sec-label"><i class="ti ti-bell" style="vertical-align:-2px;margin-right:4px"></i>Meal reminders <span style="font-size:9px;color:#5E9EA0;font-weight:400;text-transform:none">— tap days to enable, tap time to change</span></div>
       <div class="srows" style="margin-bottom:14px">
         <div class="srow" style="flex-direction:column;align-items:flex-start;gap:6px">
           <div class="remind-row-header">
-            <i class="ti ti-tools-kitchen-2" style="font-size:15px;color:#C47B4A"></i>
+            <i class="ti ti-tools-kitchen-2" style="font-size:15px;color:#3AAFA9"></i>
             <span class="remind-label">Dinner</span>
             <button class="sval" onclick="openTimePicker('ob5Dinner','Dinner reminder time')">5:00 PM</button>
             <span class="remind-off-hint" id="ob5DinnerHint">Off — tap a day</span>
@@ -520,7 +532,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         </div>
         <div class="srow" style="flex-direction:column;align-items:flex-start;gap:6px">
           <div class="remind-row-header">
-            <i class="ti ti-bowl" style="font-size:15px;color:#C47B4A"></i>
+            <i class="ti ti-bowl" style="font-size:15px;color:#3AAFA9"></i>
             <span class="remind-label">Lunch</span>
             <button class="sval" onclick="openTimePicker('ob5Lunch','Lunch reminder time')">11:30 AM</button>
             <span class="remind-off-hint" id="ob5LunchHint">Off — tap a day</span>
@@ -542,14 +554,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <!-- HOME -->
     <div class="screen" id="scr-home">
       <div class="ph">
-        <div><div style="font-size:13px;font-weight:500;color:#7A5C42">Good evening</div><div style="font-size:11px;color:#B89A82;margin-top:1px">Monday, May 19</div></div>
+        <div><div style="font-size:13px;font-weight:500;color:#17373A">Good evening</div><div style="font-size:11px;color:#5E9EA0;margin-top:1px">Monday, May 19</div></div>
         <div style="display:flex;gap:10px">
-          <button style="background:none;border:none;cursor:pointer;color:#C47B4A;font-size:18px" onclick="nav('notifications')"><i class="ti ti-bell"></i></button>
-          <button style="background:none;border:none;cursor:pointer;color:#C47B4A;font-size:18px" onclick="nav('settings')"><i class="ti ti-settings"></i></button>
+          <button style="background:none;border:none;cursor:pointer;color:#3AAFA9;font-size:18px" onclick="nav('notifications')"><i class="ti ti-bell"></i></button>
+          <button style="background:none;border:none;cursor:pointer;color:#3AAFA9;font-size:18px" onclick="nav('settings')"><i class="ti ti-settings"></i></button>
         </div>
       </div>
       <div class="banner">
-        <i class="ti ti-calendar-week" style="font-size:28px;color:#F5C9A8"></i>
+        <i class="ti ti-calendar-week" style="font-size:28px;color:#80CCC8"></i>
         <div class="banner-text"><div class="banner-title">This week's menu is ready</div><div class="banner-sub">19 dishes across 7 days</div></div>
         <button class="banner-btn" onclick="nav('menu')">View all</button>
       </div>
@@ -585,11 +597,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="screen" id="scr-library">
       <div class="ph">
         <div class="pt">My library</div>
-        <button style="background:#C47B4A;color:#fff;border:none;border-radius:10px;padding:7px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px" onclick="nav('add')"><i class="ti ti-plus" style="font-size:13px"></i> Add</button>
+        <button style="background:#3AAFA9;color:#fff;border:none;border-radius:10px;padding:7px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px" onclick="nav('add')"><i class="ti ti-plus" style="font-size:13px"></i> Add</button>
       </div>
       <div class="lib-search"><i class="ti ti-search"></i><input type="text" placeholder="Search recipes…" oninput="filterLib(this.value)"></div>
       <div id="libDietFilters" style="display:flex;flex-direction:row;gap:5px;overflow-x:auto;margin-bottom:8px;padding-bottom:2px;align-items:center;flex-wrap:nowrap;-webkit-overflow-scrolling:touch">
-        <span style="font-size:10px;color:#B89A82;font-weight:500;white-space:nowrap;flex-shrink:0">Dietary:</span>
+        <span style="font-size:10px;color:#5E9EA0;font-weight:500;white-space:nowrap;flex-shrink:0">Dietary:</span>
         <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Dairy')">Dairy</button>
         <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Meat')">Meat</button>
         <button class="fchip" style="font-size:10px;padding:3px 9px;flex-shrink:0;white-space:nowrap" onclick="toggleDietFilter(this,'Fish')">Fish</button>
@@ -606,7 +618,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
     <!-- DISH GENERATOR — FIX 5: nav always visible for main screens -->
     <div class="screen" id="scr-generator">
-      <div class="ph"><div class="pt">Dish generator</div><i class="ti ti-wand" style="font-size:18px;color:#C47B4A"></i></div>
+      <div class="ph"><div class="pt">Dish generator</div><i class="ti ti-wand" style="font-size:18px;color:#3AAFA9"></i></div>
       <div class="s-sub">Choose a type and let Plateful surprise you.</div>
       <div class="sec-label">Course type</div>
       <div class="filter-wrap" id="courseFilters">
@@ -624,7 +636,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <button class="fchip" onclick="gToggle(this)"><i class="ti ti-cheese"></i> Appetizer</button>
         <button class="fchip" onclick="gToggle(this)"><i class="ti ti-bottle"></i> Gravy &amp; dressing</button>
       </div>
-      <button class="primary-btn" style="margin-bottom:14px;border-radius:14px;border:none" onclick="generate()"><svg id="wandIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD9B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M15 4l5 5-10 10-5-5z"/><line x1="9" y1="15" x2="4" y2="20"/><line x1="14.5" y1="8.5" x2="15.5" y2="7.5"/></svg><span style="color:#fff;font-size:15px;font-weight:700;margin-left:8px">Surprise me</span></button>
+      <button class="primary-btn" style="margin-bottom:14px;border-radius:14px;border:none" onclick="generate()"><svg id="wandIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8E6DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M15 4l5 5-10 10-5-5z"/><line x1="9" y1="15" x2="4" y2="20"/><line x1="14.5" y1="8.5" x2="15.5" y2="7.5"/></svg><span style="color:#fff;font-size:15px;font-weight:700;margin-left:8px">Surprise me</span></button>
       <div class="result-card" id="resultCard">
         <div class="result-img"><i class="ti ti-bowl" id="resultIcon"></i></div>
         <div class="result-body">
@@ -653,18 +665,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="add-field-input">e.g. Grandma's apple cake</div>
         <div class="add-field-label">Course type</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
-          <span style="background:#FFF5EE;border:1px solid #C47B4A;color:#C47B4A;font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500;cursor:pointer">Cake ✓</span>
-          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Dessert</span>
-          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Other…</span>
+          <span style="background:#E0F7F6;border:1px solid #3AAFA9;color:#3AAFA9;font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500;cursor:pointer">Cake ✓</span>
+          <span style="background:#fff;border:1px solid #B2DFDB;color:#5E9EA0;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Dessert</span>
+          <span style="background:#fff;border:1px solid #B2DFDB;color:#5E9EA0;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Other…</span>
         </div>
         <div class="add-field-label">Dietary</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
           <span style="background:#EBF4FF;border:1px solid #5B9EE1;color:#1A4E8A;font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500;cursor:pointer">Dairy ✓</span>
-          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Vegetarian</span>
-          <span style="background:#fff;border:1px solid #E8D5C4;color:#B89A82;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Vegan</span>
+          <span style="background:#fff;border:1px solid #B2DFDB;color:#5E9EA0;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Vegetarian</span>
+          <span style="background:#fff;border:1px solid #B2DFDB;color:#5E9EA0;font-size:10px;padding:3px 9px;border-radius:20px;cursor:pointer">Vegan</span>
         </div>
         <div class="add-field-label">Instructions / ingredients</div>
-        <div style="font-size:12px;color:#C8A98A;min-height:60px;border:1px solid #F0E6DC;border-radius:8px;padding:8px">Type or paste recipe here…</div>
+        <div style="font-size:12px;color:#7EC8C8;min-height:60px;border:1px solid #C8F0EE;border-radius:8px;padding:8px">Type or paste recipe here…</div>
       </div>
       <div class="add-photo"><i class="ti ti-camera"></i><div><div class="add-photo-title">Add a photo</div><div class="add-photo-sub">Camera or photo library</div></div></div>
       <button class="secondary-btn" onclick="showToast('Recipe saved to library ✓');setTimeout(()=>nav('library'),800)"><i class="ti ti-check"></i><span>Save to my library</span></button>
@@ -688,11 +700,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <!-- FIX 7: Settings reminders now use same time picker + day toggles -->
       <div class="sgroup">
-        <div class="sglabel"><i class="ti ti-bell"></i> Meal reminders <span style="font-size:9px;color:#B89A82;font-weight:400;text-transform:none">— tap days to enable/disable, tap time to edit</span></div>
+        <div class="sglabel"><i class="ti ti-bell"></i> Meal reminders <span style="font-size:9px;color:#5E9EA0;font-weight:400;text-transform:none">— tap days to enable/disable, tap time to edit</span></div>
         <div class="srows">
           <div class="srow" style="flex-direction:column;align-items:flex-start;gap:6px">
             <div class="remind-row-header">
-              <i class="ti ti-tools-kitchen-2" style="font-size:15px;color:#C47B4A"></i>
+              <i class="ti ti-tools-kitchen-2" style="font-size:15px;color:#3AAFA9"></i>
               <span class="remind-label">Dinner</span>
               <button class="sval" onclick="openTimePicker('settDinner','Dinner reminder time')">5:00 PM</button>
               <span class="remind-off-hint" id="settDinnerHint">All days on</span>
@@ -709,7 +721,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
           </div>
           <div class="srow" style="flex-direction:column;align-items:flex-start;gap:6px">
             <div class="remind-row-header">
-              <i class="ti ti-bowl" style="font-size:15px;color:#C47B4A"></i>
+              <i class="ti ti-bowl" style="font-size:15px;color:#3AAFA9"></i>
               <span class="remind-label">Lunch</span>
               <button class="sval" onclick="openTimePicker('settLunch','Lunch reminder time')">11:30 AM</button>
               <span class="remind-off-hint" id="settLunchHint">Off — tap a day</span>
@@ -730,7 +742,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="sglabel"><i class="ti ti-users"></i> Family &amp; dietary</div>
         <div class="srows">
           <div class="srow"><i class="ti ti-star sicon"></i><div class="sinfo"><div class="sname">Kosher kitchen</div><div class="sdesc">Affects suggested recipes</div></div><button class="stoggle on" onclick="this.classList.toggle('on');showSaved()"></button></div>
-          <div class="srow"><i class="ti ti-user sicon"></i><div class="sinfo"><div class="sname">Family members</div><div class="sdesc">Add preferences &amp; restrictions</div></div><i class="ti ti-chevron-right schev"></i></div>
+          <div class="srow" style="cursor:pointer" onclick="nav('family')"><i class="ti ti-user sicon"></i><div class="sinfo"><div class="sname">Family members</div><div class="sdesc">Add preferences &amp; restrictions</div></div><i class="ti ti-chevron-right schev"></i></div>
           <div class="srow"><i class="ti ti-calendar-event sicon"></i><div class="sinfo"><div class="sname">Holiday menus</div><div class="sdesc">Pesach, Rosh Hashana &amp; more</div></div><i class="ti ti-chevron-right schev"></i></div>
         </div>
       </div>
@@ -740,7 +752,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
           <div class="srow"><i class="ti ti-link sicon"></i><div class="sinfo"><div class="sname">Ynet Food</div><div class="sdesc">3 categories · synced 2 days ago</div></div><button class="stoggle on" onclick="this.classList.toggle('on');showSaved()"></button></div>
           <div class="srow"><i class="ti ti-link sicon"></i><div class="sinfo"><div class="sname">Mako Kitchen</div><div class="sdesc">2 categories · synced 2 days ago</div></div><button class="stoggle on" onclick="this.classList.toggle('on');showSaved()"></button></div>
           <div class="srow"><i class="ti ti-link sicon"></i><div class="sinfo"><div class="sname">Allrecipes</div><div class="sdesc">4 categories · synced 2 days ago</div></div><button class="stoggle on" onclick="this.classList.toggle('on');showSaved()"></button></div>
-          <div class="srow" style="cursor:pointer" onclick="nav('add-source')"><i class="ti ti-plus sicon"></i><div class="sinfo"><div class="sname" style="color:#C47B4A">Add source…</div></div><i class="ti ti-chevron-right schev"></i></div>
+          <div class="srow" style="cursor:pointer" onclick="nav('add-source')"><i class="ti ti-plus sicon"></i><div class="sinfo"><div class="sname" style="color:#3AAFA9">Add source…</div></div><i class="ti ti-chevron-right schev"></i></div>
         </div>
       </div>
       <!-- FIX 8: Meal structure is now editable in settings -->
@@ -768,8 +780,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="s-sub">Tap × to remove a course you don't want. Changes save automatically.</div>
       <div id="mealEditorList" style="margin-bottom:8px"></div>
       <div style="display:flex;gap:6px;margin-bottom:14px">
-        <input type="text" placeholder="Add a course…" id="meNewCourse" style="flex:1;background:#fff;border:1.5px solid #E8D5C4;border-radius:9px;padding:7px 10px;font-size:12px;color:#7A5C42;outline:none;font-family:inherit">
-        <button style="background:#C47B4A;color:#fff;border:none;border-radius:9px;padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit" onclick="meAddCourse()">+ Add</button>
+        <input type="text" placeholder="Add a course…" id="meNewCourse" style="flex:1;background:#fff;border:1.5px solid #B2DFDB;border-radius:9px;padding:7px 10px;font-size:12px;color:#17373A;outline:none;font-family:inherit">
+        <button style="background:#3AAFA9;color:#fff;border:none;border-radius:9px;padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit" onclick="meAddCourse()">+ Add</button>
+      </div>
+    </div>
+
+    <!-- FAMILY MEMBERS -->
+    <div class="screen" id="scr-family">
+      <div class="ph">
+        <button class="back-btn" onclick="nav('settings')"><i class="ti ti-chevron-left"></i> Back</button>
+        <div class="pt">Family members</div>
+        <button style="background:#3AAFA9;color:#fff;border:none;border-radius:10px;padding:6px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit" onclick="addFamilyMember()">+ Add</button>
+      </div>
+      <div class="s-sub">Add family members and their preferences. The app will avoid suggesting dishes they dislike.</div>
+      <div id="familyList">
+        <div class="ccard" style="margin-bottom:8px">
+          <div class="ci" style="background:#E8F4FD;color:#2E86C1"><i class="ti ti-user"></i></div>
+          <div class="cb">
+            <div class="cn">Adult 1</div>
+            <div class="csc">Low-carb · No restrictions</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:#3AAFA9;cursor:pointer"></i>
+        </div>
+        <div class="ccard" style="margin-bottom:8px">
+          <div class="ci" style="background:#E8F4FD;color:#2E86C1"><i class="ti ti-user"></i></div>
+          <div class="cb">
+            <div class="cn">Adult 2</div>
+            <div class="csc">Low-carb · No restrictions</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:#3AAFA9;cursor:pointer"></i>
+        </div>
+        <div class="ccard" style="margin-bottom:8px">
+          <div class="ci" style="background:#FFF9E6;color:#D4AC0D"><i class="ti ti-mood-kid"></i></div>
+          <div class="cb">
+            <div class="cn">Child — age 10</div>
+            <div class="csc">Dislikes: white cheese as main dish</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:#3AAFA9;cursor:pointer"></i>
+        </div>
+        <div class="ccard" style="margin-bottom:8px">
+          <div class="ci" style="background:#FFF9E6;color:#D4AC0D"><i class="ti ti-mood-kid"></i></div>
+          <div class="cb">
+            <div class="cn">Child — age 4</div>
+            <div class="csc">Dislikes: bread</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:#3AAFA9;cursor:pointer"></i>
+        </div>
       </div>
     </div>
 
@@ -782,7 +838,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="notif-card"><div class="notif-icon">🔄</div><div style="flex:1"><div class="notif-app">Plateful</div><div class="notif-title">Library updated</div><div class="notif-body">12 new recipes added from Ynet Food and Allrecipes.</div></div><div class="notif-time">Tue 3 AM</div></div>
       <div class="divider"></div>
       <div class="error-card"><i class="ti ti-wifi-off"></i><div class="error-title">No internet connection</div><div class="error-sub">Sync will retry automatically next time the app opens with a connection.</div></div>
-      <div class="error-card" style="background:#FFF5EE;border-color:#F5C9A8"><i class="ti ti-alert-triangle" style="color:#C47B4A;font-size:28px;display:block;margin-bottom:8px"></i><div class="error-title" style="color:#C47B4A">Site couldn't be scanned</div><div class="error-sub">mako.co.il/baking couldn't be reached during last sync. Will retry next week.</div></div>
+      <div class="error-card" style="background:#E0F7F6;border-color:#80CCC8"><i class="ti ti-alert-triangle" style="color:#3AAFA9;font-size:28px;display:block;margin-bottom:8px"></i><div class="error-title" style="color:#3AAFA9">Site couldn't be scanned</div><div class="error-sub">mako.co.il/baking couldn't be reached during last sync. Will retry next week.</div></div>
     </div>
 
     <!-- ADD SOURCE -->
@@ -793,16 +849,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="notice"><i class="ti ti-info-circle"></i><div class="notice-text">After scanning, you'll choose which category sub-pages to include in your library.</div></div>
       <div class="sec-label">Detected categories (example)</div>
       <div class="ccards">
-        <div class="ccard" style="border-color:#C47B4A;background:#FFF5EE"><div class="ci"><i class="ti ti-droplet"></i></div><div class="cb"><div class="cn">Soups &amp; stews</div><div class="csc">somesite.com/soups</div></div><div style="width:16px;height:16px;border-radius:4px;background:#C47B4A;display:flex;align-items:center;justify-content:center"><i class="ti ti-check" style="font-size:10px;color:#fff"></i></div></div>
-        <div class="ccard"><div class="ci t"><i class="ti ti-leaf"></i></div><div class="cb"><div class="cn">Salads</div><div class="csc">somesite.com/salads</div></div><div style="width:16px;height:16px;border-radius:4px;border:1.5px solid #E8D5C4;background:#fff"></div></div>
-        <div class="ccard"><div class="ci"><i class="ti ti-meat"></i></div><div class="cb"><div class="cn">Meat &amp; poultry</div><div class="csc">somesite.com/meat</div></div><div style="width:16px;height:16px;border-radius:4px;border:1.5px solid #E8D5C4;background:#fff"></div></div>
+        <div class="ccard" style="border-color:#3AAFA9;background:#E0F7F6"><div class="ci"><i class="ti ti-droplet"></i></div><div class="cb"><div class="cn">Soups &amp; stews</div><div class="csc">somesite.com/soups</div></div><div style="width:16px;height:16px;border-radius:4px;background:#3AAFA9;display:flex;align-items:center;justify-content:center"><i class="ti ti-check" style="font-size:10px;color:#fff"></i></div></div>
+        <div class="ccard"><div class="ci t"><i class="ti ti-leaf"></i></div><div class="cb"><div class="cn">Salads</div><div class="csc">somesite.com/salads</div></div><div style="width:16px;height:16px;border-radius:4px;border:1.5px solid #B2DFDB;background:#fff"></div></div>
+        <div class="ccard"><div class="ci"><i class="ti ti-meat"></i></div><div class="cb"><div class="cn">Meat &amp; poultry</div><div class="csc">somesite.com/meat</div></div><div style="width:16px;height:16px;border-radius:4px;border:1.5px solid #B2DFDB;background:#fff"></div></div>
       </div>
       <button class="secondary-btn" onclick="showToast('Source added ✓');setTimeout(()=>nav('settings'),800)"><i class="ti ti-check"></i><span>Add selected categories</span></button>
     </div>
 
   </div><!-- /screens -->
 
-  <div class="toast" id="toast"><i class="ti ti-check" style="color:#FFD9B0"></i><span id="toastMsg"></span></div>
+  <div class="toast" id="toast"><i class="ti ti-check" style="color:#A8E6DF"></i><span id="toastMsg"></span></div>
 
 
   <!-- DAY PICKER MODAL -->
@@ -836,7 +892,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="modal-handle"></div>
       <div class="modal-title">Sort recipes</div>
       <div class="modal-sub" style="margin-bottom:10px">Choose how to order your library</div>
-      <div class="sort-option active-sort" onclick="setSort('az')"><i class="ti ti-sort-ascending-letters"></i><div><div class="sort-option-label">A → Z (name)</div></div><i class="ti ti-check" style="font-size:14px;color:#C47B4A;margin-left:auto"></i></div>
+      <div class="sort-option active-sort" onclick="setSort('az')"><i class="ti ti-sort-ascending-letters"></i><div><div class="sort-option-label">A → Z (name)</div></div><i class="ti ti-check" style="font-size:14px;color:#3AAFA9;margin-left:auto"></i></div>
       <div class="sort-option" onclick="setSort('za')"><i class="ti ti-sort-descending-letters"></i><div><div class="sort-option-label">Z → A (name)</div></div></div>
       <div class="sort-option" onclick="setSort('course')"><i class="ti ti-category"></i><div><div class="sort-option-label">By course type</div></div></div>
       <div class="sort-option" onclick="setSort('liked')"><i class="ti ti-heart"></i><div><div class="sort-option-label">Liked first</div></div></div>
@@ -851,7 +907,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="modal-sheet">
       <div class="modal-handle"></div>
       <div class="modal-title" id="tpTitle">Set reminder time</div>
-      <div style="font-size:11px;color:#B89A82;text-align:center;margin-bottom:10px">Tap a time to select</div>
+      <div style="font-size:11px;color:#5E9EA0;text-align:center;margin-bottom:10px">Tap a time to select</div>
       <div id="tpTimeList" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;max-height:260px;overflow-y:auto;margin-bottom:12px;padding:2px"></div>
       <div id="tpHour" style="display:none">5</div>
       <div id="tpMin" style="display:none">00</div>
@@ -922,7 +978,7 @@ let libLiked=new Set(RECIPES.map((r,i)=>r.liked?i:-1).filter(i=>i>=0));
 
 // FIX 5: nav visible for generator, favourites too — only hide during onboarding
 const ONBOARDING=['ob1','ob2','ob3','ob4','ob4b','ob5'];
-const NAV_MAP={home:0,menu:1,library:2,generator:null,favourites:null,settings:3,'meal-structure':3,'meal-editor':3,'add-source':3,add:2,notifications:0,'ob4b':null};
+const NAV_MAP={home:0,menu:1,library:2,generator:null,favourites:null,settings:3,'meal-structure':3,'meal-editor':3,'add-source':3,add:2,notifications:0,'ob4b':null,family:3};
 
 function nav(id){
   document.getElementById('scr-'+currentScreen)?.classList.remove('active');
@@ -955,15 +1011,15 @@ function selectMode(m){
   const wEl=document.getElementById('modeWeekly'),dEl=document.getElementById('modeDish');
   const rW=document.getElementById('radioWeekly'),rD=document.getElementById('radioDish');
   if(m==='weekly'){
-    wEl.style.borderColor='#C47B4A';wEl.style.background='#FFF5EE';
-    dEl.style.borderColor='#E8D5C4';dEl.style.background='#fff';
-    rW.style.cssText='width:28px;height:28px;border-radius:50%;background:#C47B4A;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(196,123,74,.4)';
+    wEl.style.borderColor='#3AAFA9';wEl.style.background='#E0F7F6';
+    dEl.style.borderColor='#B2DFDB';dEl.style.background='#fff';
+    rW.style.cssText='width:28px;height:28px;border-radius:50%;background:#3AAFA9;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(196,123,74,.4)';
     rW.innerHTML='<i class="ti ti-check" style="color:#fff;font-size:16px"></i>';
     rD.style.cssText='width:28px;height:28px;border-radius:50%;border:2px solid #D8C0A8;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0';
     rD.innerHTML='';
   }else{
     dEl.style.borderColor='#1D9E75';dEl.style.background='#F0FBF7';
-    wEl.style.borderColor='#E8D5C4';wEl.style.background='#fff';
+    wEl.style.borderColor='#B2DFDB';wEl.style.background='#fff';
     rD.style.cssText='width:28px;height:28px;border-radius:50%;background:#1D9E75;border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(29,158,117,.4)';
     rD.innerHTML='<i class="ti ti-check" style="color:#fff;font-size:16px"></i>';
     rW.style.cssText='width:28px;height:28px;border-radius:50%;border:2px solid #D8C0A8;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0';
@@ -975,7 +1031,7 @@ function selectMenuDay(btn){document.querySelectorAll('#menuDaySel .day-sel').fo
 
 // FIX 1: obCount for onboarding editor
 function obCount(btn,delta){const span=btn.parentElement.querySelector('.count-val');let v=parseInt(span.textContent)+delta;if(v<1)v=1;if(v>9)v=9;span.textContent=v;}
-function obAddCourse(){const inp=document.getElementById('obNewCourse');const name=inp.value.trim();if(!name)return;const row=document.createElement('div');row.className='meal-editor-row';row.innerHTML=`<div class="ci" style="width:28px;height:28px;font-size:13px"><i class="ti ti-bowl"></i></div><div class="meal-editor-name">${name}</div><div class="meal-editor-count"><button class="count-btn" onclick="obCount(this,-1)">−</button><span class="count-val">1</span><button class="count-btn" onclick="obCount(this,1)">+</button></div><button style="background:none;border:none;cursor:pointer;font-size:18px;color:#C47B4A;padding:0 4px;flex-shrink:0" onclick="this.closest('.meal-editor-row').remove()"><i class="ti ti-x"></i></button>`;document.getElementById('obCourses').appendChild(row);inp.value='';}
+function obAddCourse(){const inp=document.getElementById('obNewCourse');const name=inp.value.trim();if(!name)return;const row=document.createElement('div');row.className='meal-editor-row';row.innerHTML=`<div class="ci" style="width:28px;height:28px;font-size:13px"><i class="ti ti-bowl"></i></div><div class="meal-editor-name">${name}</div><div class="meal-editor-count"><button class="count-btn" onclick="obCount(this,-1)">−</button><span class="count-val">1</span><button class="count-btn" onclick="obCount(this,1)">+</button></div><button style="background:none;border:none;cursor:pointer;font-size:18px;color:#3AAFA9;padding:0 4px;flex-shrink:0" onclick="this.closest('.meal-editor-row').remove()"><i class="ti ti-x"></i></button>`;document.getElementById('obCourses').appendChild(row);inp.value='';}
 
 // FIX 3,4: reminder day toggle — updates hint text
 function toggleReminderDay(btn,hintId){btn.classList.toggle('on');const container=btn.closest('.day-sel-row');const onCount=container.querySelectorAll('.day-sel.on').length;const hint=document.getElementById(hintId);if(!hint)return;if(onCount===0)hint.textContent='Off — tap a day';else if(onCount===7)hint.textContent='All days on';else hint.textContent=onCount+' day'+(onCount!==1?'s':'')+' on';}
@@ -1066,7 +1122,7 @@ function filterLib(q){
   document.getElementById('libCount').textContent=filtered.length+' recipe'+(filtered.length!==1?'s':'');
   document.getElementById('liblist').innerHTML=filtered.map(r=>{const gi=RECIPES.indexOf(r),lk=libLiked.has(gi),dt=DIET_TAG[r.diet]||'';return`<div class="ccard" style="margin-bottom:6px"><div class="ci ${r.t?'t':r.mine?'pu':''}"><i class="ti ${r.ic}"></i></div><div class="cb"><div class="cc">${r.course}</div><div class="cn">${r.name}</div><div style="display:flex;gap:4px;margin-top:3px;flex-wrap:wrap">${dt?`<span class="rc-tag ${dt}">${r.diet}</span>`:''}<span class="rc-tag tag-cuisine">${r.cuisine}</span>${r.mine?'<span class="rc-tag tag-mine">My recipe</span>':''}</div></div><button class="cbtn ${lk?'lk':''}" onclick="libLike(${gi},this)"><i class="ti ti-heart"></i></button></div>`;}).join('')||'<div class="empty-state">No recipes found</div>';}
 function libLike(i,btn){libLiked.has(i)?libLiked.delete(i):libLiked.add(i);btn.classList.toggle('lk');}
-function setSort(mode){libSortMode=mode;document.querySelectorAll('.sort-option').forEach(el=>{const isActive=el.getAttribute('onclick')===`setSort('${mode}')`;el.classList.toggle('active-sort',isActive);const chk=el.querySelector('.ti-check');if(chk)chk.remove();if(isActive){const ic=document.createElement('i');ic.className='ti ti-check';ic.style.cssText='font-size:14px;color:#C47B4A;margin-left:auto';el.appendChild(ic);}});filterLib('');document.getElementById('sortModal').classList.remove('on');showToast('Sorted ✓');}
+function setSort(mode){libSortMode=mode;document.querySelectorAll('.sort-option').forEach(el=>{const isActive=el.getAttribute('onclick')===`setSort('${mode}')`;el.classList.toggle('active-sort',isActive);const chk=el.querySelector('.ti-check');if(chk)chk.remove();if(isActive){const ic=document.createElement('i');ic.className='ti ti-check';ic.style.cssText='font-size:14px;color:#3AAFA9;margin-left:auto';el.appendChild(ic);}});filterLib('');document.getElementById('sortModal').classList.remove('on');showToast('Sorted ✓');}
 
 // FAVOURITES
 function buildFavourites(){const favs=RECIPES.filter((_,i)=>libLiked.has(i));const el=document.getElementById('favList');if(!favs.length){el.innerHTML=`<div class="fav-empty"><i class="ti ti-heart"></i><div class="fav-empty-title">No favourites yet</div><div class="fav-empty-sub">Tap the heart icon on any recipe in the library or weekly menu to save it here.</div></div>`;return;}const DIET_TAG2={Vegan:'tag-veg',Vegetarian:'tag-veg',Dairy:'tag-dairy',Meat:'tag-meat'};el.innerHTML=favs.map(r=>{const dt=DIET_TAG2[r.diet]||'';return`<div class="ccard" style="margin-bottom:6px"><div class="ci ${r.t?'t':''}"><i class="ti ${r.ic}"></i></div><div class="cb"><div class="cc">${r.course}</div><div class="cn">${r.name}</div><div style="display:flex;gap:4px;margin-top:3px">${dt?`<span class="rc-tag ${dt}">${r.diet}</span>`:''}<span class="rc-tag tag-cuisine">${r.cuisine}</span></div></div><button class="cbtn lk"><i class="ti ti-heart"></i></button></div>`;}).join('');}
@@ -1084,7 +1140,7 @@ function generate(){const anyMode=!!document.querySelector('#courseFilters .any.
     setTimeout(()=>{wi.style.transition='none';wi.style.transform='';},550);
   }
   const sb=document.getElementById('saveBtn');sb.innerHTML='<i class="ti ti-heart"></i> Save';sb.style.background='#E1F5EE';sb.style.color='#085041';const h=document.getElementById('genHistory');const row=document.createElement('div');row.className='ccard';row.style.marginBottom='5px';row.innerHTML=`<div class="ci"><i class="ti ${pick.ic}"></i></div><div class="cb"><div class="cc">${pick.course}</div><div class="cn">${pick.name}</div><div class="csc">${pick.src}</div></div>`;if(h.querySelector('.empty-state'))h.innerHTML='';h.insertBefore(row,h.firstChild);if(h.children.length>3)h.removeChild(h.lastChild);}
-function toggleSave(){genSaved=!genSaved;const sb=document.getElementById('saveBtn');sb.innerHTML=`<i class="ti ti-heart"></i> ${genSaved?'Saved':'Save'}`;sb.style.background=genSaved?'#C47B4A':'#E1F5EE';sb.style.color=genSaved?'#fff':'#085041';}
+function toggleSave(){genSaved=!genSaved;const sb=document.getElementById('saveBtn');sb.innerHTML=`<i class="ti ti-heart"></i> ${genSaved?'Saved':'Save'}`;sb.style.background=genSaved?'#3AAFA9':'#E1F5EE';sb.style.color=genSaved?'#fff':'#085041';}
 
 // SETTINGS
 function cycleVal(id,arr){valIdx[id]=((valIdx[id]??-1)+1)%arr.length;document.getElementById(id).textContent=arr[valIdx[id]];showSaved();}
@@ -1175,51 +1231,49 @@ function obAddCourse(){const inp=document.getElementById('obNewCourse');const na
 // ── MEAL STRUCTURE from SETTINGS ──
 let editingMeal=null;
 function openMealStructureMenu(){
-  nav('meal-structure');
-  setTimeout(()=>{
-    const container=document.getElementById('mealStructureMenu');
-    if(!container)return;
-    container.innerHTML='';
-    const meals=Array.isArray(selectedMeals)&&selectedMeals.length?selectedMeals:['dinner'];
-    let added=0;
-    meals.forEach(mKey=>{
-      const m=MEAL_DEFS[mKey];
-      if(!m)return;
-      added++;
-      const names=(m.courses||[]).map(c=>c.name).join(' · ')||'(no courses yet)';
-      const card=document.createElement('div');
-      card.className='ccard';
-      card.style.cssText='cursor:pointer;margin-bottom:6px';
-      card.innerHTML=`
-        <div class="ci" style="width:34px;height:34px;font-size:15px">
-          <i class="ti ${m.icon||'ti-bowl'}"></i>
-        </div>
-        <div class="cb">
-          <div class="cn">${m.label}</div>
-          <div class="csc" style="white-space:normal;line-height:1.5">${names}</div>
-        </div>
-        <i class="ti ti-pencil" style="font-size:14px;color:#C47B4A;flex-shrink:0"></i>`;
-      card.onclick=()=>openMealEditor(mKey);
-      container.appendChild(card);
-    });
-    if(!added){
-      container.innerHTML='<div class="empty-state" style="padding:20px 0">No meals set up yet.<br>Complete onboarding first.</div>';
-    }
-    // Add meal button
-    const addBtn=document.createElement('button');
-    addBtn.className='secondary-btn';
-    addBtn.style.marginTop='10px';
-    addBtn.innerHTML='<i class="ti ti-plus"></i><span>Add a meal</span>';
-    addBtn.onclick=()=>{
-      const opts=['breakfast','lunch','brunch','snack'].filter(k=>!selectedMeals.includes(k));
-      if(!opts.length){showToast('All meals already added');return;}
-      const next=opts[0];
-      selectedMeals.push(next);
-      showToast((MEAL_DEFS[next]?.label||next)+' added');
-      openMealStructureMenu();
-    };
-    container.appendChild(addBtn);
-  },80);
+  // Populate FIRST (works even when hidden), then nav
+  const container=document.getElementById('mealStructureMenu');
+  if(!container){nav('meal-structure');return;}
+  container.innerHTML='';
+  const meals=Array.isArray(selectedMeals)&&selectedMeals.length?selectedMeals:['dinner'];
+  let added=0;
+  meals.forEach(mKey=>{
+    const m=MEAL_DEFS[mKey];
+    if(!m)return;
+    added++;
+    const names=(m.courses||[]).map(c=>c.name).join(' · ')||'(no courses yet)';
+    const card=document.createElement('div');
+    card.className='ccard';
+    card.style.cssText='cursor:pointer;margin-bottom:6px';
+    card.innerHTML=`
+      <div class="ci" style="width:34px;height:34px;font-size:15px">
+        <i class="ti ${m.icon||'ti-bowl'}"></i>
+      </div>
+      <div class="cb">
+        <div class="cn">${m.label}</div>
+        <div class="csc" style="white-space:normal;line-height:1.5">${names}</div>
+      </div>
+      <i class="ti ti-pencil" style="font-size:14px;color:#3AAFA9;flex-shrink:0"></i>`;
+    card.onclick=()=>openMealEditor(mKey);
+    container.appendChild(card);
+  });
+  if(!added){
+    container.innerHTML='<div class="empty-state" style="padding:20px 0">No meals set up yet.<br>Complete onboarding first.</div>';
+  }
+  const addBtn=document.createElement('button');
+  addBtn.className='secondary-btn';
+  addBtn.style.marginTop='10px';
+  addBtn.innerHTML='<i class="ti ti-plus"></i><span>Add a meal</span>';
+  addBtn.onclick=()=>{
+    const opts=['breakfast','lunch','brunch','snack'].filter(k=>!selectedMeals.includes(k));
+    if(!opts.length){showToast('All meals already added');return;}
+    const next=opts[0];
+    selectedMeals.push(next);
+    showToast((MEAL_DEFS[next]?.label||next)+' added');
+    openMealStructureMenu();
+  };
+  container.appendChild(addBtn);
+  nav('meal-structure'); // nav AFTER content is ready
 }
 function openMealEditor(mKey){
   editingMeal=mKey;
@@ -1281,7 +1335,7 @@ function buildOb5Reminders(){
     row.style.cssText='flex-direction:column;align-items:flex-start;gap:6px';
     row.innerHTML=`
       <div class="remind-row-header">
-        <i class="ti ti-${info.icon}" style="font-size:15px;color:#C47B4A"></i>
+        <i class="ti ti-${info.icon}" style="font-size:15px;color:#3AAFA9"></i>
         <span class="remind-label">${info.label}</span>
         <button class="sval" onclick="openTimePicker('ob5${m}Time','${info.label} reminder')" id="ob5${m}Time">${info.def}</button>
         <span class="remind-off-hint" id="${info.hintId}">Off — tap a day</span>
@@ -1320,16 +1374,16 @@ function openTimePicker(targetId, title){
   TP_TIMES.forEach(t=>{
     const btn = document.createElement('button');
     const isSelected = t === tpSelected;
-    btn.style.cssText = `padding:10px 4px;border-radius:10px;border:1.5px solid ${isSelected?'#C47B4A':'#E8D5C4'};background:${isSelected?'#C47B4A':'#fff'};color:${isSelected?'#fff':'#7A5C42'};font-size:12px;font-weight:${isSelected?'700':'400'};cursor:pointer;font-family:inherit;transition:all .1s`;
+    btn.style.cssText = `padding:10px 4px;border-radius:10px;border:1.5px solid ${isSelected?'#3AAFA9':'#B2DFDB'};background:${isSelected?'#3AAFA9':'#fff'};color:${isSelected?'#fff':'#17373A'};font-size:12px;font-weight:${isSelected?'700':'400'};cursor:pointer;font-family:inherit;transition:all .1s`;
     btn.textContent = t;
     btn.onclick = ()=>{
       tpSelected = t;
       // update highlight
       list.querySelectorAll('button').forEach(b=>{
         const sel = b.textContent===t;
-        b.style.background = sel?'#C47B4A':'#fff';
-        b.style.color = sel?'#fff':'#7A5C42';
-        b.style.borderColor = sel?'#C47B4A':'#E8D5C4';
+        b.style.background = sel?'#3AAFA9':'#fff';
+        b.style.color = sel?'#fff':'#17373A';
+        b.style.borderColor = sel?'#3AAFA9':'#B2DFDB';
         b.style.fontWeight = sel?'700':'400';
       });
     };
@@ -1374,8 +1428,30 @@ function buildHomeDayContent(){
   const dayIdx=activeChip?parseInt(activeChip.dataset.dayidx||0):0;
   const dishes=MENU[dayIdx]||[];
   if(!dishes.length){el.innerHTML='<div class="empty-state" style="padding:10px 0">No menu for this day</div>';return;}
-  el.innerHTML='<div style="font-size:12px;font-weight:500;color:#7A5C42;display:flex;align-items:center;gap:6px;margin-bottom:8px"><i class="ti ti-tools-kitchen-2" style="font-size:14px;color:#C47B4A"></i> Dinner — today</div>'+
+  el.innerHTML='<div style="font-size:12px;font-weight:500;color:#17373A;display:flex;align-items:center;gap:6px;margin-bottom:8px"><i class="ti ti-tools-kitchen-2" style="font-size:14px;color:#3AAFA9"></i> Dinner — today</div>'+
     '<div class="ccards">'+dishes.slice(0,3).map(d=>`<div class="ccard"><div class="ci ${d.t?'t':''}"><i class="ti ${d.ic}"></i></div><div class="cb"><div class="cc">${d.course}</div><div class="cn">${d.name}</div><div class="csc">${d.src}</div></div><div class="ca"><button class="cbtn" onclick="this.classList.toggle('lk')"><i class="ti ti-heart"></i></button><button class="cbtn"><i class="ti ti-external-link"></i></button></div></div>`).join('')+'</div>';
+}
+
+// FAMILY MEMBERS
+function addFamilyMember(){
+  const list=document.getElementById('familyList');
+  if(!list)return;
+  const card=document.createElement('div');
+  card.className='ccard';
+  card.style.marginBottom='8px';
+  card.innerHTML=`
+    <div class="ci" style="background:#FFF9E6;color:#D4AC0D"><i class="ti ti-mood-kid"></i></div>
+    <div class="cb">
+      <div class="cn" contenteditable="true" style="outline:none;border-bottom:1px solid #B2DFDB;min-width:80px" 
+           onblur="if(!this.textContent.trim())this.textContent='New member'">New member</div>
+      <div class="csc">Tap name to edit · add restrictions below</div>
+    </div>
+    <button style="background:none;border:none;cursor:pointer;font-size:18px;color:#3AAFA9" 
+            onclick="this.closest('.ccard').remove()">
+      <i class="ti ti-x"></i>
+    </button>`;
+  list.appendChild(card);
+  showToast('Member added — tap name to edit');
 }
 
 // DAY PICKER
@@ -1387,9 +1463,9 @@ function openDayPicker(targetId,title,options){
   const current=document.getElementById(targetId)?.textContent||'';
   const container=document.getElementById('dpOptions');
   container.innerHTML=options.map(o=>`
-    <div onclick="selectDayOption('${o}')" style="display:flex;align-items:center;gap:10px;padding:11px 4px;border-bottom:.5px solid #F0E6DC;cursor:pointer">
-      <i class="ti ti-${o===current?'circle-dot':'circle'}" style="font-size:16px;color:${o===current?'#C47B4A':'#D8C0A8'}"></i>
-      <span style="font-size:13px;font-weight:${o===current?'600':'400'};color:${o===current?'#C47B4A':'#7A5C42'}">${o}</span>
+    <div onclick="selectDayOption('${o}')" style="display:flex;align-items:center;gap:10px;padding:11px 4px;border-bottom:.5px solid #C8F0EE;cursor:pointer">
+      <i class="ti ti-${o===current?'circle-dot':'circle'}" style="font-size:16px;color:${o===current?'#3AAFA9':'#D8C0A8'}"></i>
+      <span style="font-size:13px;font-weight:${o===current?'600':'400'};color:${o===current?'#3AAFA9':'#17373A'}">${o}</span>
     </div>`).join('');
   document.getElementById('dayPickerModal').classList.add('on');
 }
